@@ -201,9 +201,9 @@ function tic(x,y,s,ang=33,mood="content"){
   const k=s/200, r=ang*Math.PI/180, L=108;
   const ex=100+Math.sin(r)*L, ey=148-Math.cos(r)*L;
   const wx=100+Math.sin(r)*62, wy=148-Math.cos(r)*62;
-  let mouth=`<path d="M87 110 Q 98 125 109 110 Z" fill="${C.foret}" stroke="${C.foret}" stroke-width="3" stroke-linejoin="round"/>`;
+  let mouth=`<path d="M89 110 Q 100 125 111 110 Z" fill="${C.foret}" stroke="${C.foret}" stroke-width="3" stroke-linejoin="round"/>`;
   if(mood==="oreille") mouth=`<ellipse cx="99" cy="114" rx="5" ry="6" fill="${C.foret}"/>`;
-  if(mood==="fete") mouth=`<path d="M84 108 Q 99 132 114 108 Z" fill="${C.foret}"/>`;
+  if(mood==="fete") mouth=`<path d="M85 108 Q 100 132 115 108 Z" fill="${C.foret}"/>`;
   const extra = mood==="fete" ? `<circle cx="40" cy="40" r="6" fill="${C.soleil}"/><rect x="150" y="30" width="10" height="10" fill="${C.soleil}" transform="rotate(20 155 35)"/><circle cx="170" cy="120" r="5" fill="${C.soleil}"/><rect x="24" y="110" width="10" height="10" fill="${C.creme}" transform="rotate(-20 29 115)"/>`
     : "";
   return `<g transform="translate(${x} ${y}) scale(${k})">${extra}
