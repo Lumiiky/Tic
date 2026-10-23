@@ -68,7 +68,7 @@ Cible cumulée : 15 à 20 entretiens, soit 8 à 10 entretiens par fondateur, ré
 
 ### Étape 5 : équipe et pitch, les deux fondateurs (S6-S8, 30 nov - 18 déc)
 
-- [ ] S6 : 5 fiches de poste dans `docs/recruitment/job-descriptions/` : développement mobile, traitement audio et IA, back-end et données, UI/UX, DevOps ; chacune sépare prérequis obligatoires et compétences acquérables, et cite le besoin de `feasibility.md` qui la justifie
+- [ ] S6 : 5 fiches de poste dans `docs/recruitment/job-descriptions/` : développement mobile, traitement audio et IA, back-end, données et DevOps, UI/UX et front-end, son et back-end ; chacune sépare prérequis obligatoires et compétences acquérables, et cite le besoin de `feasibility.md` qui la justifie
 - [ ] S7 : première version de `presentations/pitch-t7.pdf` et de la présentation « Free Agent » de chaque fondateur
 - [ ] S8 : deux répétitions chronométrées, dont une devant un public extérieur ; liste de questions du jury avec réponses
 - [ ] 18 décembre : gel de tous les livrables et dernière vérification qu'aucune donnée identifiante ne figure dans le dépôt

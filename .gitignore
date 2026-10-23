@@ -1,0 +1,20 @@
+# Notes de travail locales : à la racine, seul le README part sur le dépôt.
+# Pour publier un autre fichier .md à la racine, ajouter une exception « !/NOM.md ».
+/*.md
+!/README.md
+
+# Dossiers cachés de la racine (réglages locaux de l'éditeur et des outils)
+/.*/
+!/.github/
+
+# Données personnelles : jamais sur le dépôt public
+# (consentements, coordonnées, suivi des contacts, enregistrements d'entretiens)
+prive/
+*.private.*
+
+# Systèmes et éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+~$*

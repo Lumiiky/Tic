@@ -51,9 +51,9 @@ C'est tout. Pas besoin de jouer d'un instrument.
 
 ## Avec qui tu travailles
 - **Développement mobile** : capture du micro, intégration du modèle.
-- **Back-end et données** : partitions de référence, progrès.
-- **UI/UX** : retours d'essai, calibration.
-- **DevOps** : livraison des modèles, tests audio (poste qui peut devenir un second développeur mobile, à trancher).
+- **Son et back-end** : partitions de référence, banc d'enregistrements pour les tests.
+- **Back-end, données et DevOps** : progrès, livraison des modèles, tests automatisés.
+- **UI/UX et front-end** : retours d'essai, calibration.
 - Les deux fondateurs portent la direction produit et le recrutement, comme le prévoit le cadre Epitech.
 
 ## Ce que tu y gagnes
