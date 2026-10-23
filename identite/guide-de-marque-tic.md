@@ -110,8 +110,8 @@ Proposition d'aude : un formulaire de niveau, ou faire jouer son meilleur morcea
 ## Décidé
 
 - Instruments à l'onboarding : piano ou clavier, et guitare seulement. Pas de ukulélé (22 oct. 2026), pas de choix « autre » (23 oct. 2026), décisions d'aude.
+- Seconde police : Nunito pour les textes longs (vitrine, dossiers, consentements), Baloo 2 pour les titres, boutons et bulles (23 oct. 2026), décision d'aude.
 
 ## À trancher
 
-- Nunito en seconde police, ou Baloo 2 seule partout.
 - Les durées et dates affichées sont illustratives (140 min de pratique supposées pour la Gymnopédie simplifiée).
