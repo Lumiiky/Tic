@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Logo Tic mascotte</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1024px; height: 1024px; box-sizing: border-box; background: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px">
+  <svg width="640" height="640" viewBox="0 0 200 200" role="img" aria-label="Tic, le métronome, bat la mesure en souriant">
+    <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+    <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+    <circle cx="90" cy="95" r="7" fill="#1F4D3A"></circle><circle cx="110" cy="95" r="7" fill="#1F4D3A"></circle><circle cx="92.4" cy="92.6" r="2.6" fill="#FFFFFF"></circle><circle cx="112.4" cy="92.6" r="2.6" fill="#FFFFFF"></circle>
+    <path d="M87 110 Q 98 125 109 110 Z" fill="#1F4D3A" stroke="#1F4D3A" stroke-width="3" stroke-linejoin="round"></path>
+    <line x1="100" y1="148" x2="160" y2="56" stroke="#FFF3E0" stroke-width="8" stroke-linecap="round"></line>
+    
+  </svg>
+  <div style="display: flex; align-items: flex-end; color: #FFF3E0; font-weight: 800; font-size: 190px; line-height: 0.8; margin-top: -50px" role="img" aria-label="tic">
+    <span aria-hidden="true">t</span>
+    <svg width="64" height="179" viewBox="0 0 54 150" aria-hidden="true" style="margin: 0 -3.2px 7px 2.5px"><line x1="27" y1="128" x2="27" y2="63" stroke="#FF8A5B" stroke-width="18" stroke-linecap="round"></line><circle cx="27" cy="36" r="11" fill="#FFF3E0"></circle></svg>
+    <span aria-hidden="true">c</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1024,"height":1024}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

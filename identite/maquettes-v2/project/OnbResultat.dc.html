@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ton point de départ</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 14px">
+    <a href="OnbNiveau.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="font-size: 15px; font-weight: 600; color: #46655A">{{ source }}</div>
+  </div>
+
+  <div style="background: #1F4D3A; color: #FFF3E0; border-radius: 26px; padding: 16px 18px; display: flex; align-items: center; gap: 12px">
+    <div style="flex: 1">
+      <div style="font-weight: 600; font-size: 14px; color: #CFE3D8">Ton point de départ</div>
+      <h1 style="margin: 0; font-weight: 800; font-size: 26px; line-height: 1.1">{{ headline }}</h1>
+    </div>
+    <svg width="84" height="84" viewBox="0 0 200 200" role="img" aria-label="Tic, fier" style="flex-shrink: 0"><path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path><rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect><path d="M84 98 Q 90 91 96 98" fill="none" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></path><path d="M104 98 Q 110 91 116 98" fill="none" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></path><path d="M88 111 Q 100 124 112 111" fill="none" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></path><line x1="100" y1="148" x2="156" y2="62" stroke="#FFF3E0" stroke-width="8" stroke-linecap="round"></line></svg>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0; display: flex; flex-direction: column; gap: 6px">
+      <div style="font-weight: 800; font-size: 16px; color: #256B47">Tu sais déjà</div>
+      <sc-for list="{{ known }}" as="k" hint-placeholder-count="3">
+        <div style="display: flex; gap: 6px; align-items: flex-start; font-weight: 600; font-size: 14px; line-height: 1.3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#256B47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><polyline points="20 6 9 17 4 12"></polyline></svg><span>{{ k }}</span></div>
+      </sc-for>
+    </div>
+    <div style="background: #FFE0CF; border-radius: 20px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px">
+      <div style="font-weight: 800; font-size: 16px; color: #A63E17">On travaillera</div>
+      <sc-for list="{{ todo }}" as="t" hint-placeholder-count="3">
+        <div style="display: flex; gap: 6px; align-items: flex-start; font-weight: 600; font-size: 14px; line-height: 1.3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A63E17" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><polyline points="9 18 15 12 9 6"></polyline></svg><span>{{ t }}</span></div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; box-shadow: 0 2px 0 #F0DCC0; display: flex; flex-direction: column; gap: 8px">
+    <div style="font-weight: 800; font-size: 17px">Ce que ça change pour ton plan</div>
+    <sc-for list="{{ plan }}" as="p" hint-placeholder-count="3">
+      <div style="display: flex; justify-content: space-between; gap: 10px; font-weight: 600; font-size: 15px; border-top: 1.5px solid #F3DFC2; padding-top: 6px"><span style="color: #46655A">{{ p.k }}</span><span style="font-weight: 800; text-align: right">{{ p.v }}</span></div>
+    </sc-for>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <a href="OnbMorceau.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Choisir mon morceau</a>
+    <a href="OnbQuestions.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; text-underline-offset: 4px">Pas tout à fait ça ? Ajuster</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"source":{"editor":"enum","options":["extraits joués","questions","débutant"],"default":"extraits joués"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const src = this.props.source ?? 'extraits joués';
+    if (src === 'débutant') {
+      return {
+        source: 'Tu débutes',
+        headline: 'On part de zéro, en douceur',
+        known: ['L’envie, c’est le principal', 'Ton instrument est prêt'],
+        todo: ['Trouver le do', 'Une main à la fois', 'Garder le tempo'],
+        plan: [{ k: 'Compétences avant ton morceau', v: '4' }, { k: 'Tempo de départ', v: '50 %' }, { k: 'Parties', v: 'plus courtes' }]
+      };
+    }
+    const fromPlay = src === 'extraits joués';
+    return {
+      source: fromPlay ? 'D’après tes 3 extraits' : 'D’après tes réponses · à confirmer en jouant',
+      headline: 'Tu reprends avec de bonnes bases',
+      known: ['Lire en clé de sol', 'Main droite seule', 'Tempo régulier'],
+      todo: ['Deux mains ensemble', 'Accords main gauche', 'Clé de fa'],
+      plan: [
+        { k: 'Compétences sautées', v: fromPlay ? '2 sur 5' : '1 sur 5' },
+        { k: 'Tempo de départ', v: fromPlay ? '70 %' : '60 %' },
+        { k: 'Arrivée estimée', v: fromPlay ? '4 jours plus tôt' : '2 jours plus tôt' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

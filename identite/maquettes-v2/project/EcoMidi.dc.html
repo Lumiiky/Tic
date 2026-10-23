@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Connecter un clavier MIDI</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 12px">
+    <a href="EcoMicro.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="font-size: 16px; font-weight: 600; color: #46655A">Option · clavier MIDI</div>
+  </div>
+
+  <div>
+    <h1 style="margin: 0; font-weight: 800; font-size: 32px; line-height: 1.08">Branche ton clavier</h1>
+    <div style="font-size: 16px; font-weight: 600; color: #46655A; margin-top: 4px">En MIDI, j'entends chaque note et la force de frappe, même dans le bruit.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0; display: flex; flex-direction: column; gap: 4px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F4D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="7" rx="1.5"></rect><path d="M12 9v6"></path><path d="M12 15c0 3-2 4-4 5"></path><path d="M12 15c0 3 2 4 4 5"></path></svg>
+      <div style="font-weight: 800; font-size: 16px; line-height: 1.2">Câble USB</div>
+      <div style="font-weight: 600; font-size: 13px; color: #46655A; line-height: 1.3">Avec un adaptateur USB-C ou Lightning si besoin</div>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0; display: flex; flex-direction: column; gap: 4px">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F4D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 7 17 17 12 22 12 2 17 7 7 17"></polyline></svg>
+      <div style="font-weight: 800; font-size: 16px; line-height: 1.2">Bluetooth MIDI</div>
+      <div style="font-weight: 600; font-size: 13px; color: #46655A; line-height: 1.3">Si ton clavier le propose, sans fil</div>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-radius: 22px; padding: 14px 16px; box-shadow: 0 2px 0 #F0DCC0; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 36px; height: 36px; border-radius: 18px; background: #256B47; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF3E0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+      <div style="flex: 1"><div style="font-weight: 800; font-size: 16px; line-height: 1.2">Clavier USB détecté</div><div style="font-weight: 600; font-size: 14px; color: #46655A">Appuie sur une touche pour tester</div></div>
+    </div>
+    <div style="position: relative; height: 92px; border-radius: 10px; overflow: hidden; border: 2px solid #1F4D3A" role="img" aria-label="Clavier : la touche sol est allumée">
+      <div style="display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); height: 100%">
+        <div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FF8A5B"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="border-right: 1.5px solid #E5D3B8; background: #FFFFFF"></div><div style="background: #FFFFFF"></div>
+      </div>
+      <div style="position: absolute; top: 0; left: calc(7.143% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(14.286% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(28.571% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(35.714% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(42.857% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(57.143% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(64.286% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(78.571% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(85.714% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+      <div style="position: absolute; top: 0; left: calc(92.857% - 7px); width: 14px; height: 56%; background: #1F4D3A; border-radius: 0 0 4px 4px"></div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 15px"><span>Sol entendu</span><span style="color: #A63E17">force 72 / 127</span></div>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; align-items: flex-end; gap: 8px">
+    <svg width="64" height="64" viewBox="0 0 200 200" role="img" aria-label="Tic, content" style="flex-shrink: 0"><path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path><rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect><circle cx="90" cy="96" r="7" fill="#1F4D3A"></circle><circle cx="92.45" cy="93.55" r="2.6" fill="#FFFFFF"></circle><circle cx="110" cy="96" r="7" fill="#1F4D3A"></circle><circle cx="112.45" cy="93.55" r="2.6" fill="#FFFFFF"></circle><path d="M90 114 Q 100 124 110 114" fill="none" stroke="#1F4D3A" stroke-width="6" stroke-linecap="round"></path><line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="9" stroke-linecap="round"></line></svg>
+    <div style="background: #FFFFFF; border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-weight: 600; font-size: 15px; line-height: 1.35; box-shadow: 0 2px 0 #F0DCC0; margin-bottom: 12px">Pas de prise MIDI ? Le micro fait très bien l'affaire.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <a href="SeaEssai.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Utiliser ce clavier</a>
+    <a href="EcoCalibration.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; text-underline-offset: 4px">Plutôt le micro</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

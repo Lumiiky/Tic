@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ton rappel du jour</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 16px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 14px">
+    <a href="OnbParcours.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px" role="img" aria-label="Étape 6 sur 6">
+      <div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div>
+    </div>
+  </div>
+
+  <div>
+    <h1 style="margin: 0; font-weight: 800; font-size: 32px; line-height: 1.08">Quand est-ce que tu joues ?</h1>
+    <div style="font-size: 16px; font-weight: 600; color: #46655A; margin-top: 4px">Je te fais signe à ce moment-là, une fois par jour.</div>
+  </div>
+
+  <div style="background: #FFFFFF; border-radius: 22px; padding: 14px 16px; box-shadow: 0 2px 0 #F0DCC0; display: flex; align-items: center; gap: 12px">
+    <svg width="64" height="64" viewBox="0 0 200 200" role="img" aria-label="Tic endormi" style="flex-shrink: 0"><line x1="100" y1="148" x2="100" y2="22" stroke="#1F4D3A" stroke-width="8" stroke-linecap="round"></line><path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path><rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect><path d="M84 96 Q 90 102 96 96" fill="none" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></path><path d="M104 96 Q 110 102 116 96" fill="none" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></path><circle cx="100" cy="116" r="4" fill="#1F4D3A"></circle><g fill="#1F4D3A" font-family="'Baloo 2', sans-serif" font-weight="800"><text x="132" y="52" font-size="22">z</text><text x="150" y="34" font-size="28">z</text></g></svg>
+    <div style="flex: 1">
+      <div style="font-weight: 600; font-size: 13px; color: #46655A">Aperçu de la notification · {{ time }}</div>
+      <div style="font-weight: 800; font-size: 16px; line-height: 1.25">Psst… ton thème principal t'attend.</div>
+      <div style="font-weight: 600; font-size: 14px; color: #46655A; line-height: 1.3">10 minutes et c'est fait.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px" role="radiogroup" aria-label="Heure du rappel">
+    <sc-for list="{{ slots }}" as="s" hint-placeholder-count="4">
+      <button type="button" role="radio" aria-checked="{{ s.checked }}" onClick="{{ s.pick }}" style="{{ s.style }}">
+        <span style="font-weight: 800; font-size: 24px; line-height: 1">{{ s.time }}</span>
+        <span style="font-weight: 600; font-size: 14px; color: #46655A">{{ s.label }}</span>
+      </button>
+    </sc-for>
+  </div>
+
+  <div style="display: flex; gap: 10px; align-items: flex-start; padding: 0 4px">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#256B47" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <div style="font-weight: 600; font-size: 15px; line-height: 1.4">Un seul rappel, jamais de relance. Rien les jours où tu as déjà joué.</div>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <a href="EcoMicro.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Me rappeler à {{ time }}</a>
+    <a href="EcoMicro.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; text-underline-offset: 4px">Pas de rappel pour l'instant</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: '18 h 30' };
+  }
+  renderVals() {
+    const base = [
+      { time: '8 h', label: 'Avant de partir' },
+      { time: '12 h 30', label: 'À la pause' },
+      { time: '18 h 30', label: 'En rentrant' },
+      { time: '21 h', label: 'Le soir' }
+    ];
+    const slots = base.map((s) => {
+      const on = this.state.picked === s.time;
+      return {
+        ...s,
+        checked: on ? 'true' : 'false',
+        pick: () => this.setState({ picked: s.time }),
+        style: 'display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 16px; border-radius: 20px; font-family: inherit; color: #1F4D3A; cursor: pointer; ' + (on ? 'background: #FFE0CF; border: 2.5px solid #1F4D3A;' : 'background: #FFFFFF; border: 2.5px solid transparent; box-shadow: 0 2px 0 #F0DCC0;')
+      };
+    });
+    return { slots, time: this.state.picked };
+  }
+}
+</script>
+</body>
+</html>

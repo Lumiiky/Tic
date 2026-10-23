@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Quelques questions sur ton niveau</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 14px">
+    <a href="OnbNiveau.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="font-size: 16px; font-weight: 600; color: #46655A">{{ answered }} réponses sur 4</div>
+  </div>
+
+  <h1 style="margin: 0; font-weight: 800; font-size: 30px; line-height: 1.08">Dis-m'en un peu plus</h1>
+
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <sc-for list="{{ questions }}" as="q" hint-placeholder-count="4">
+      <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px">
+        <legend style="padding: 0; font-weight: 800; font-size: 17px; line-height: 1.25; margin-bottom: 6px">{{ q.label }}</legend>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px" role="radiogroup" aria-label="{{ q.label }}">
+          <sc-for list="{{ q.options }}" as="o" hint-placeholder-count="3">
+            <button type="button" role="radio" aria-checked="{{ o.checked }}" onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </fieldset>
+    </sc-for>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; align-items: flex-end; gap: 8px">
+    <svg width="64" height="64" viewBox="0 0 200 200" role="img" aria-label="Tic, curieux" style="flex-shrink: 0"><path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path><rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect><line x1="104" y1="80" x2="118" y2="76" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></line><circle cx="90" cy="97" r="6" fill="#1F4D3A"></circle><circle cx="92.1" cy="94.9" r="2.2" fill="#FFFFFF"></circle><circle cx="110" cy="95" r="8" fill="#1F4D3A"></circle><circle cx="112.8" cy="92.2" r="3" fill="#FFFFFF"></circle><path d="M92 116 Q 101 120 109 113" fill="none" stroke="#1F4D3A" stroke-width="5" stroke-linecap="round"></path><line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="8" stroke-linecap="round"></line></svg>
+    <div style="background: #FFFFFF; border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-weight: 600; font-size: 15px; line-height: 1.35; box-shadow: 0 2px 0 #F0DCC0; margin-bottom: 12px">Si je me trompe, je le verrai à tes premières séances et j'ajusterai.</div>
+  </div>
+
+  <a href="OnbResultat.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Voir mon point de départ</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { a: { lecture: 1, mains: 1, morceaux: 1, pause: 2 } };
+  }
+  renderVals() {
+    const defs = [
+      { id: 'lecture', label: 'Tu lis une partition ?', opts: ['Pas du tout', 'Un peu', 'Oui'] },
+      { id: 'mains', label: 'Tu joues des deux mains en même temps ?', opts: ['Non', 'Lentement', 'Oui'] },
+      { id: 'morceaux', label: 'Combien de morceaux tu sais jouer en entier ?', opts: ['Aucun', '1 à 3', 'Plus'] },
+      { id: 'pause', label: 'Tu as joué pour la dernière fois…', opts: ['Cette semaine', 'Cette année', 'Il y a longtemps'] }
+    ];
+    const a = this.state.a;
+    const questions = defs.map((q) => ({
+      label: q.label,
+      options: q.opts.map((label, i) => {
+        const on = a[q.id] === i;
+        return {
+          label,
+          checked: on ? 'true' : 'false',
+          pick: () => this.setState({ a: { ...a, [q.id]: i } }),
+          style: 'min-height: 48px; padding: 4px 6px; border-radius: 16px; font-family: inherit; font-weight: 700; font-size: 14px; line-height: 1.15; color: #1F4D3A; cursor: pointer; ' + (on ? 'background: #FFE0CF; border: 2.5px solid #1F4D3A;' : 'background: #FFFFFF; border: 2.5px solid transparent; box-shadow: 0 2px 0 #F0DCC0;')
+        };
+      })
+    }));
+    return { questions, answered: Object.keys(a).length };
+  }
+}
+</script>
+</body>
+</html>

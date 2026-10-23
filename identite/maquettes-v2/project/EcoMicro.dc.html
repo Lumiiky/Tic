@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Autoriser le micro</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 16px; overflow: hidden">
+  <div style="display: flex; justify-content: center; margin-top: 8px">
+    <svg width="180" height="180" viewBox="0 0 200 200" role="img" aria-label="Tic à l'écoute">
+      <path d="M44 84 q -8 14 0 28" fill="none" stroke="#256B47" stroke-width="5" stroke-linecap="round"></path>
+      <path d="M32 76 q -12 22 0 44" fill="none" stroke="#256B47" stroke-width="5" stroke-linecap="round" opacity="0.6"></path>
+      <path d="M20 68 q -16 30 0 60" fill="none" stroke="#256B47" stroke-width="5" stroke-linecap="round" opacity="0.3"></path>
+      <line x1="100" y1="148" x2="122" y2="24" stroke="#1F4D3A" stroke-width="8" stroke-linecap="round"></line>
+      <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+      <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+      <circle cx="88" cy="92" r="7" fill="#1F4D3A"></circle><circle cx="90.45" cy="89.55" r="2.6" fill="#FFFFFF"></circle><circle cx="108" cy="92" r="7" fill="#1F4D3A"></circle><circle cx="110.45" cy="89.55" r="2.6" fill="#FFFFFF"></circle>
+      <circle cx="98" cy="116" r="5" fill="#1F4D3A"></circle>
+    </svg>
+  </div>
+
+  <div>
+    <h1 style="margin: 0; font-weight: 800; font-size: 32px; line-height: 1.08">Pour t'entendre, j'ai besoin du micro</h1>
+    <div style="font-size: 16px; font-weight: 600; color: #46655A; margin-top: 6px">C'est comme ça que je sais quelle note tu joues, et que je valide tes parties.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; gap: 12px; align-items: flex-start; background: #FFFFFF; border-radius: 18px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#256B47" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><rect x="6" y="2" width="12" height="20" rx="3"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+      <div><div style="font-weight: 800; font-size: 16px; line-height: 1.2">Le son reste sur ton téléphone</div><div style="font-weight: 600; font-size: 14px; color: #46655A; line-height: 1.35">Je l'analyse sur place. Rien n'est envoyé.</div></div>
+    </div>
+    <div style="display: flex; gap: 12px; align-items: flex-start; background: #FFFFFF; border-radius: 18px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><circle cx="12" cy="12" r="6" fill="#256B47"></circle></svg>
+      <div><div style="font-weight: 800; font-size: 16px; line-height: 1.2">Seulement pendant un exercice</div><div style="font-weight: 600; font-size: 14px; color: #46655A; line-height: 1.35">Le point vert en haut de l'écran te le montre.</div></div>
+    </div>
+    <div style="display: flex; gap: 12px; align-items: flex-start; background: #FFFFFF; border-radius: 18px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#256B47" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+      <div><div style="font-weight: 800; font-size: 16px; line-height: 1.2">Tes enregistrements t'appartiennent</div><div style="font-weight: 600; font-size: 14px; color: #46655A; line-height: 1.35">Je te demande avant d'en garder un.</div></div>
+    </div>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <a href="EcoCalibration.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Autoriser le micro</a>
+    <a href="EcoMidi.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; text-underline-offset: 4px">J'utilise un clavier MIDI</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

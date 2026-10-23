@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Logo Refrain</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 560px; height: 600px; display: flex; flex-direction: column; font-family: 'Bricolage Grotesque', sans-serif">
+  <div style="flex: 1; background: #12131A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px">
+    <svg width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="Icône Refrain : signe de reprise">
+      <rect width="200" height="200" rx="46" fill="#1F2230"></rect>
+      <rect x="56" y="48" width="24" height="104" rx="6" fill="#E8FF5A"></rect>
+      <rect x="92" y="48" width="9" height="104" rx="4.5" fill="#E8FF5A"></rect>
+      <circle cx="128" cy="82" r="12" fill="#E8FF5A"></circle>
+      <circle cx="128" cy="118" r="12" fill="#E8FF5A"></circle>
+    </svg>
+    <div style="font-weight: 800; font-size: 64px; color: #F2F1EC; letter-spacing: -0.02em; line-height: 1">refrain</div>
+  </div>
+  <div style="height: 150px; background: #F2F1EC; display: flex; align-items: center; justify-content: center; gap: 18px">
+    <svg width="64" height="64" viewBox="0 0 200 200" aria-hidden="true">
+      <rect width="200" height="200" rx="46" fill="#12131A"></rect>
+      <rect x="56" y="48" width="24" height="104" rx="6" fill="#E8FF5A"></rect>
+      <rect x="92" y="48" width="9" height="104" rx="4.5" fill="#E8FF5A"></rect>
+      <circle cx="128" cy="82" r="12" fill="#E8FF5A"></circle>
+      <circle cx="128" cy="118" r="12" fill="#E8FF5A"></circle>
+    </svg>
+    <div style="font-weight: 800; font-size: 40px; color: #12131A; letter-spacing: -0.02em">refrain</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":560,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

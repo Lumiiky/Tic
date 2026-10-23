@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Composants d'interface Tic</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Nunito:wght@400;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1280px; height: 800px; box-sizing: border-box; background: #FFF3E0; padding: 48px 56px; display: flex; flex-direction: column; gap: 20px; font-family: 'Baloo 2', sans-serif; color: #1F4D3A">
+  <div style="display: flex; align-items: baseline; justify-content: space-between">
+    <div style="font-weight: 800; font-size: 44px; line-height: 1">7 · Composants d'interface</div>
+    <div style="font-weight: 600; font-size: 18px; color: #46655A">Rond, posé, avec une ombre pleine sous les éléments qu'on touche.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; flex: 1">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="font-weight: 800; font-size: 20px">Boutons</div>
+      <button type="button" style="min-height: 60px; border: none; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; box-shadow: 0 4px 0 #133326">Principal · C'est parti</button>
+      <button type="button" style="min-height: 56px; border: none; border-radius: 20px; background: #FFFFFF; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 18px; box-shadow: 0 3px 0 #F0DCC0">Secondaire · Plus tard</button>
+      <button type="button" style="min-height: 44px; border: none; background: transparent; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px; text-decoration: underline; text-underline-offset: 4px">Lien · Passer cette étape</button>
+      <div style="font-family: 'Nunito', sans-serif; font-size: 14px; line-height: 1.45; color: #46655A">Un seul bouton principal par écran, en bas, à portée de pouce. Zone tactile minimale 44 px.</div>
+
+      <div style="font-weight: 800; font-size: 20px; margin-top: 6px">Pastilles</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <span style="display: flex; align-items: center; gap: 6px; background: #FFE0CF; color: #A63E17; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 16px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-5 0-8z"></path></svg>5 jours</span>
+        <span style="background: #FFFFFF; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 14px; box-shadow: 0 2px 0 #F0DCC0">Tempo 60 %</span>
+        <span style="background: #DCEBE3; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 14px">À réviser</span>
+        <span style="background: #DDEBF5; color: #2F6A99; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 14px">Série gelée</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 800; font-size: 20px">Les parties d'un morceau</div>
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px">
+        <div style="height: 10px; border-radius: 5px; background: #FF8A5B"></div><div style="height: 10px; border-radius: 5px; background: #FF8A5B"></div><div style="height: 10px; border-radius: 5px; background: linear-gradient(90deg, #FF8A5B 66%, #F3DFC2 66%)"></div><div style="height: 10px; border-radius: 5px; background: #F3DFC2"></div><div style="height: 10px; border-radius: 5px; background: #F3DFC2"></div><div style="height: 10px; border-radius: 5px; background: #F3DFC2"></div><div style="height: 10px; border-radius: 5px; background: #F3DFC2"></div>
+      </div>
+      <div style="font-family: 'Nunito', sans-serif; font-size: 13px; color: #46655A">Barre en segments : un segment par partie, jamais une jauge continue.</div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 2px 0 #F0DCC0">
+        <div style="width: 34px; height: 34px; border-radius: 17px; background: #FF8A5B; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F4D3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <div style="flex: 1"><div style="font-weight: 700; font-size: 16px; line-height: 1.2">Validée</div><div style="font-size: 14px; color: #46655A; font-weight: 600">3 essais à 80 %</div></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 18px; background: #FFE0CF; border: 2.5px solid #FF8A5B">
+        <div style="width: 34px; height: 34px; border-radius: 17px; background: #1F4D3A; color: #FFF3E0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800">3</div>
+        <div style="flex: 1"><div style="font-weight: 700; font-size: 16px; line-height: 1.2">En cours</div><div style="font-size: 14px; color: #A63E17; font-weight: 600">2 validations sur 3</div></div>
+        <div style="display: flex; gap: 4px"><div style="width: 9px; height: 9px; border-radius: 5px; background: #1F4D3A"></div><div style="width: 9px; height: 9px; border-radius: 5px; background: #1F4D3A"></div><div style="width: 9px; height: 9px; border-radius: 5px; border: 2px solid #1F4D3A; box-sizing: border-box"></div></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 18px; background: #FFFFFF; border: 2px dashed #46655A">
+        <div style="width: 34px; height: 34px; border-radius: 17px; background: #DCEBE3; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F4D3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M8 11l4 4 4-4"></path><path d="M5 21h14"></path></svg></div>
+        <div style="flex: 1"><div style="font-weight: 700; font-size: 16px; line-height: 1.2">Compétence clé</div><div style="font-size: 14px; color: #46655A; font-weight: 600">Placée avant la partie qui l'exige</div></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 18px; color: #46655A">
+        <div style="width: 34px; height: 34px; border-radius: 17px; background: #F3DFC2; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
+        <div style="flex: 1; font-size: 16px; font-weight: 600">À venir</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="font-weight: 800; font-size: 20px">Choix et bulle</div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 20px; background: #FFE0CF; border: 2.5px solid #1F4D3A">
+        <div style="width: 22px; height: 22px; border-radius: 11px; border: 7px solid #1F4D3A; box-sizing: border-box; background: #FFFFFF; flex-shrink: 0"></div>
+        <div style="font-weight: 700; font-size: 17px">Option choisie</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 2px 0 #F0DCC0">
+        <div style="width: 22px; height: 22px; border-radius: 11px; border: 2.5px solid #46655A; box-sizing: border-box; flex-shrink: 0"></div>
+        <div style="font-weight: 700; font-size: 17px">Option libre</div>
+      </div>
+      <div style="display: flex; align-items: flex-end; gap: 8px; margin-top: 4px">
+        <svg width="64" height="64" viewBox="0 0 200 200" aria-hidden="true" style="flex-shrink: 0"><path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path><rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect><circle cx="90" cy="96" r="7" fill="#1F4D3A"></circle><circle cx="92.45" cy="93.55" r="2.6" fill="#FFFFFF"></circle><circle cx="110" cy="96" r="7" fill="#1F4D3A"></circle><circle cx="112.45" cy="93.55" r="2.6" fill="#FFFFFF"></circle><path d="M90 114 Q 100 124 110 114" fill="none" stroke="#1F4D3A" stroke-width="6" stroke-linecap="round"></path><line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="9" stroke-linecap="round"></line></svg>
+        <div style="background: #FFFFFF; border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-weight: 600; font-size: 15px; box-shadow: 0 2px 0 #F0DCC0; margin-bottom: 12px">Bulle : coin bas-gauche pointé vers Tic.</div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; box-shadow: 0 2px 0 #F0DCC0; margin-top: auto; font-family: 'Nunito', sans-serif; font-size: 14px; line-height: 1.55">
+        <b style="font-family: 'Baloo 2', sans-serif; font-size: 16px">Mesures</b><br>
+        Marges d'écran 20 px · espacements 8, 12, 16, 24<br>
+        Rayons : bouton 20, carte 18 à 22, pastille ronde<br>
+        Ombre pleine : 2 px #F0DCC0 (carte), 4 px #133326 (bouton)<br>
+        Icônes : trait arrondi 2,2 à 3 px, jamais d'emoji
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

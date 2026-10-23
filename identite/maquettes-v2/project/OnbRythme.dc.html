@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ton rythme et ta date d'arrivée</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 14px">
+    <a href="OnbMorceau.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px" role="img" aria-label="Étape 4 sur 6">
+      <div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #F3DFC2"></div><div style="height: 8px; border-radius: 4px; background: #F3DFC2"></div>
+    </div>
+  </div>
+
+  <h1 style="margin: 0; font-weight: 800; font-size: 32px; line-height: 1.08">Combien de temps tu veux jouer ?</h1>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="font-weight: 800; font-size: 17px">Par séance</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px" role="radiogroup" aria-label="Durée d'une séance">
+      <sc-for list="{{ durations }}" as="d" hint-placeholder-count="4">
+        <button type="button" role="radio" aria-checked="{{ d.checked }}" onClick="{{ d.pick }}" style="{{ d.style }}"><span style="font-weight: 800; font-size: 24px; line-height: 1">{{ d.n }}</span><span style="font-weight: 700; font-size: 13px">min</span></button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="font-weight: 800; font-size: 17px">Par semaine</div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px" role="radiogroup" aria-label="Séances par semaine">
+      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="3">
+        <button type="button" role="radio" aria-checked="{{ w.checked }}" onClick="{{ w.pick }}" style="{{ w.style }}"><span style="font-weight: 800; font-size: 17px; line-height: 1.1">{{ w.label }}</span></button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #1F4D3A; color: #FFF3E0; border-radius: 26px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; margin-top: 4px" aria-live="polite">
+    <div style="font-weight: 600; font-size: 15px; color: #CFE3D8">Gymnopédie n°1 en entier</div>
+    <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-weight: 600; font-size: 20px">vers le</span><span style="font-weight: 800; font-size: 44px; line-height: 1; color: #FF8A5B">{{ arrival }}</span></div>
+    <div style="font-weight: 600; font-size: 15px; color: #CFE3D8">{{ sessions }} séances · 7 parties · 3 compétences à apprendre</div>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; align-items: flex-end; gap: 8px">
+    <svg width="72" height="72" viewBox="0 0 200 200" role="img" aria-label="Tic, content" style="flex-shrink: 0"><path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path><rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect><circle cx="90" cy="96" r="7" fill="#1F4D3A"></circle><circle cx="92.45" cy="93.55" r="2.6" fill="#FFFFFF"></circle><circle cx="110" cy="96" r="7" fill="#1F4D3A"></circle><circle cx="112.45" cy="93.55" r="2.6" fill="#FFFFFF"></circle><path d="M90 114 Q 100 124 110 114" fill="none" stroke="#1F4D3A" stroke-width="6" stroke-linecap="round"></path><line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="9" stroke-linecap="round"></line></svg>
+    <div style="background: #FFFFFF; border-radius: 20px 20px 20px 6px; padding: 10px 14px; font-weight: 600; font-size: 15px; line-height: 1.35; box-shadow: 0 2px 0 #F0DCC0; margin-bottom: 14px">C'est une estimation. Si tu changes de rythme, la date bouge, sans reproche.</div>
+  </div>
+
+  <a href="OnbParcours.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Voir mon parcours</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mins: 10, perWeek: 5 };
+  }
+  renderVals() {
+    const TOTAL_MIN = 140;
+    const months = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+    const sel = 'background: #FFE0CF; border: 2.5px solid #1F4D3A;';
+    const off = 'background: #FFFFFF; border: 2.5px solid transparent; box-shadow: 0 2px 0 #F0DCC0;';
+    const durations = [5, 10, 15, 20].map((n) => ({
+      n,
+      checked: this.state.mins === n ? 'true' : 'false',
+      pick: () => this.setState({ mins: n }),
+      style: 'display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 64px; border-radius: 18px; font-family: inherit; color: #1F4D3A; cursor: pointer; ' + (this.state.mins === n ? sel : off)
+    }));
+    const weeks = [{ n: 3, label: '3 jours' }, { n: 5, label: '5 jours' }, { n: 7, label: 'Tous les jours' }].map((w) => ({
+      ...w,
+      checked: this.state.perWeek === w.n ? 'true' : 'false',
+      pick: () => this.setState({ perWeek: w.n }),
+      style: 'display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 18px; font-family: inherit; color: #1F4D3A; cursor: pointer; ' + (this.state.perWeek === w.n ? sel : off)
+    }));
+    const sessions = Math.ceil(TOTAL_MIN / this.state.mins);
+    const days = Math.ceil(sessions * 7 / this.state.perWeek);
+    const d = new Date(2026, 9, 22);
+    d.setDate(d.getDate() + days);
+    const arrival = d.getDate() + ' ' + months[d.getMonth()];
+    return { durations, weeks, sessions, arrival };
+  }
+}
+</script>
+</body>
+</html>

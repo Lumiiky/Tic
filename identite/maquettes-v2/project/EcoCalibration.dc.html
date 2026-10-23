@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Calibration du micro</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; justify-content: space-between">
+    <a href="EcoMicro.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="display: flex; align-items: center; gap: 6px; background: #DCEBE3; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 14px"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="#256B47"></circle></svg>Micro actif</div>
+  </div>
+
+  <div>
+    <h1 style="margin: 0; font-weight: 800; font-size: 32px; line-height: 1.08">On règle mon oreille</h1>
+    <div style="font-size: 16px; font-weight: 600; color: #46655A; margin-top: 4px">30 secondes, sur ton instrument, là où tu joues d'habitude.</div>
+  </div>
+
+  <div style="background: #2A2140; color: #FFF3E0; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px" aria-live="polite">
+    <div style="font-weight: 600; font-size: 15px; color: #C9BEE0">{{ prompt }}</div>
+    <div style="font-weight: 800; font-size: 64px; line-height: 1; color: {{ noteColor }}">{{ note }}</div>
+    <div style="display: flex; align-items: flex-end; gap: 5px; height: 48px" aria-hidden="true">
+      <sc-for list="{{ bars }}" as="b" hint-placeholder-count="12">
+        <div style="width: 12px; border-radius: 6px; height: {{ b.h }}px; background: {{ b.c }}"></div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 18px; background: {{ s.bg }}">
+        <div style="width: 32px; height: 32px; border-radius: 16px; background: {{ s.dot }}; color: {{ s.fg }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800; font-size: 15px">{{ s.mark }}</div>
+        <div style="flex: 1"><div style="font-weight: 800; font-size: 16px; line-height: 1.2">{{ s.title }}</div><div style="font-weight: 600; font-size: 14px; color: #46655A">{{ s.status }}</div></div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+    <a href="SeaEssai.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Je t'entends bien. On joue !</a>
+  </sc-if>
+  <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+    <button type="button" onClick="{{ next }}" style="min-height: 60px; border: none; border-radius: 20px; background: #FFFFFF; color: #1F4D3A; font-family: inherit; font-weight: 800; font-size: 18px; box-shadow: 0 3px 0 #F0DCC0; cursor: pointer">Simuler : j'ai joué</button>
+  </sc-if>
+  <a href="EcoProbleme.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; text-underline-offset: 4px; margin-top: -6px">Tu ne m'entends pas ?</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 1 };
+  }
+  renderVals() {
+    const st = this.state.step;
+    const defs = [
+      { title: 'Le calme de la pièce', ok: 'Pièce calme, parfait', wait: 'Ne joue rien pendant 3 secondes' },
+      { title: 'Une note seule', ok: 'Do entendu, bien net', wait: 'Joue un do, n’importe lequel' },
+      { title: 'Trois notes ensemble', ok: 'Accord de do entendu', wait: 'Joue do, mi, sol en même temps' }
+    ];
+    const steps = defs.map((d, i) => {
+      const isDone = i < st;
+      const isNow = i === st;
+      return {
+        title: d.title,
+        status: isDone ? d.ok : (isNow ? d.wait : 'Ensuite'),
+        mark: isDone ? '✓' : String(i + 1),
+        dot: isDone ? '#256B47' : (isNow ? '#1F4D3A' : '#F3DFC2'),
+        fg: (isDone || isNow) ? '#FFF3E0' : '#1F4D3A',
+        bg: isNow ? '#FFFFFF' : 'transparent'
+      };
+    });
+    const prompts = ['Silence…', 'Joue un do', 'Joue do, mi, sol', 'Tout est réglé'];
+    const notes = ['…', 'Do', 'Do · Mi · Sol', '✓'];
+    const heights = [
+      [6, 8, 6, 7, 6, 8, 6, 7, 6, 8, 6, 7],
+      [8, 14, 22, 34, 44, 38, 30, 22, 16, 12, 10, 8],
+      [10, 20, 32, 44, 46, 40, 44, 36, 28, 20, 14, 10],
+      [6, 8, 6, 7, 6, 8, 6, 7, 6, 8, 6, 7]
+    ][st];
+    const bars = heights.map((h) => ({ h, c: h > 40 ? '#FFD23F' : (h > 12 ? '#7FD1A3' : '#5A4E78') }));
+    return {
+      steps,
+      bars,
+      prompt: prompts[st],
+      note: notes[st],
+      noteColor: st === 3 ? '#7FD1A3' : '#FFF3E0',
+      done: st >= 3,
+      notDone: st < 3,
+      next: () => this.setState({ step: Math.min(3, st + 1) })
+    };
+  }
+}
+</script>
+</body>
+</html>

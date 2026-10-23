@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Logotype Tic</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 560px; height: 600px; display: flex; flex-direction: column; font-family: 'Baloo 2', sans-serif">
+  <div style="flex: 1; background: #1F4D3A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px">
+    <div style="display: flex; align-items: flex-end; color: #FFF3E0; font-weight: 800; font-size: 160px; line-height: 0.8" role="img" aria-label="tic">
+      <span aria-hidden="true">t</span>
+      <svg width="62" height="150" viewBox="0 0 62 150" aria-hidden="true" style="margin: 0 2px 6px 4px">
+        <line x1="14" y1="140" x2="46" y2="40" stroke="#FF8A5B" stroke-width="18" stroke-linecap="round"></line>
+        <rect x="22" y="72" width="34" height="22" rx="6" fill="#FF8A5B" transform="rotate(18 39 83)"></rect>
+        <circle cx="52" cy="14" r="11" fill="#FFF3E0"></circle>
+      </svg>
+      <span aria-hidden="true">c</span>
+    </div>
+    <div style="font-weight: 600; font-size: 20px; color: #CFE3D8; margin-top: 18px">Ton morceau, un jour après l'autre.</div>
+  </div>
+  <div style="height: 170px; background: #FFF3E0; display: flex; align-items: center; justify-content: center; gap: 14px">
+    <svg width="84" height="84" viewBox="0 0 200 200" aria-hidden="true">
+      <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+      <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+      <circle cx="90" cy="96" r="7" fill="#1F4D3A"></circle>
+      <circle cx="110" cy="96" r="7" fill="#1F4D3A"></circle>
+      <path d="M90 114 Q 100 124 110 114" fill="none" stroke="#1F4D3A" stroke-width="6" stroke-linecap="round"></path>
+      <line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="9" stroke-linecap="round"></line>
+    </svg>
+    <div style="font-weight: 800; font-size: 64px; color: #1F4D3A; line-height: 1">tic</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":560,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

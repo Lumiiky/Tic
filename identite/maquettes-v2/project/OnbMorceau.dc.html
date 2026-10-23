@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Choisis ton morceau</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 14px">
+    <a href="OnbResultat.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px" role="img" aria-label="Étape 3 sur 6">
+      <div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #FF8A5B"></div><div style="height: 8px; border-radius: 4px; background: #F3DFC2"></div><div style="height: 8px; border-radius: 4px; background: #F3DFC2"></div><div style="height: 8px; border-radius: 4px; background: #F3DFC2"></div>
+    </div>
+  </div>
+
+  <h1 style="margin: 0; font-weight: 800; font-size: 32px; line-height: 1.08">Choisis ton morceau</h1>
+
+  <label style="display: flex; align-items: center; gap: 10px; background: #FFFFFF; border-radius: 18px; padding: 0 14px; min-height: 50px; box-shadow: 0 2px 0 #F0DCC0">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46655A" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+    <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Chercher un morceau</span>
+    <input type="search" placeholder="Un titre, un compositeur…" style="flex: 1; border: none; outline: none; background: transparent; font-family: inherit; font-weight: 600; font-size: 16px; color: #1F4D3A">
+  </label>
+
+  <div style="display: flex; gap: 8px; overflow: hidden">
+    <span style="background: #1F4D3A; color: #FFF3E0; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap">Pour débuter</span>
+    <span style="background: #FFFFFF; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap; box-shadow: 0 2px 0 #F0DCC0">Classique</span>
+    <span style="background: #FFFFFF; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap; box-shadow: 0 2px 0 #F0DCC0">Traditionnel</span>
+    <span style="background: #FFFFFF; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap; box-shadow: 0 2px 0 #F0DCC0">Ragtime</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px" role="radiogroup" aria-label="Morceaux">
+    <sc-for list="{{ songs }}" as="s" hint-placeholder-count="5">
+      <button type="button" role="radio" aria-checked="{{ s.checked }}" onClick="{{ s.pick }}" style="{{ s.style }}">
+        <div style="width: 44px; height: 44px; border-radius: 14px; background: {{ s.tile }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F4D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </div>
+        <div style="flex: 1; text-align: left; min-width: 0">
+          <div style="font-weight: 800; font-size: 17px; line-height: 1.15">{{ s.title }}</div>
+          <div style="font-weight: 600; font-size: 14px; color: #46655A; line-height: 1.3">{{ s.meta }}</div>
+        </div>
+        <div style="font-weight: 700; font-size: 13px; color: #46655A; text-align: right; line-height: 1.2; flex-shrink: 0">{{ s.parts }}</div>
+      </button>
+    </sc-for>
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <a href="OnbMorceau.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 18px; border: 2px dashed #46655A; text-decoration: none; min-height: 44px">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="flex-shrink: 0"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    <span style="font-weight: 700; font-size: 15px; line-height: 1.3">Ton morceau n'est pas là ? Ajoute-le à ta liste d'envies.</span>
+  </a>
+
+  <a href="OnbRythme.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">Je choisis {{ pickedTitle }}</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: 'gymno' };
+  }
+  renderVals() {
+    const base = [
+      { id: 'menuet', title: 'Menuet en sol', short: 'le Menuet', meta: 'Petzold · très facile', parts: '5 parties' },
+      { id: 'gymno', title: 'Gymnopédie n°1', short: 'la Gymnopédie', meta: 'Satie · facile', parts: '7 parties' },
+      { id: 'elise', title: 'Lettre à Élise', short: 'Lettre à Élise', meta: 'Beethoven · moyen', parts: '9 parties' },
+      { id: 'green', title: 'Greensleeves', short: 'Greensleeves', meta: 'Traditionnel · facile', parts: '6 parties' },
+      { id: 'enter', title: 'The Entertainer', short: 'The Entertainer', meta: 'Joplin · moyen', parts: '10 parties' }
+    ];
+    let pickedTitle = '';
+    const songs = base.map((o) => {
+      const on = this.state.picked === o.id;
+      if (on) pickedTitle = o.short;
+      return {
+        ...o,
+        checked: on ? 'true' : 'false',
+        tile: on ? '#FF8A5B' : '#F3DFC2',
+        pick: () => this.setState({ picked: o.id }),
+        style: 'display: flex; align-items: center; gap: 12px; width: 100%; padding: 8px 12px 8px 8px; border-radius: 18px; font-family: inherit; color: #1F4D3A; cursor: pointer; ' + (on ? 'background: #FFE0CF; border: 2.5px solid #1F4D3A;' : 'background: #FFFFFF; border: 2.5px solid transparent; box-shadow: 0 2px 0 #F0DCC0;')
+      };
+    });
+    return { songs, pickedTitle };
+  }
+}
+</script>
+</body>
+</html>

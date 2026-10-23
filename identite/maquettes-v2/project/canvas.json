@@ -1,0 +1,353 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-22T14:40:00Z"
+  },
+  "title": "Tic · Identité et maquettes v2",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "designSystems": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide de marque · Couverture"
+    },
+    "BrandLogo.dc.html": {
+      "x": 1360,
+      "y": 0,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide · Logo et règles d'usage"
+    },
+    "BrandCouleurs.dc.html": {
+      "x": 2720,
+      "y": 0,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide · Couleurs"
+    },
+    "BrandTypo.dc.html": {
+      "x": 0,
+      "y": 920,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide · Typographie"
+    },
+    "BrandMascotte.dc.html": {
+      "x": 1360,
+      "y": 920,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide · Tic, la mascotte"
+    },
+    "BrandTon.dc.html": {
+      "x": 2720,
+      "y": 920,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide · Ton et voix"
+    },
+    "BrandComposants.dc.html": {
+      "x": 0,
+      "y": 1840,
+      "w": 1280,
+      "h": 800,
+      "title": "Guide · Composants d'interface"
+    },
+    "Banniere.dc.html": {
+      "x": 1360,
+      "y": 1840,
+      "w": 1600,
+      "h": 600,
+      "title": "Bannière V1 (logotype)"
+    },
+    "LogoExport.dc.html": {
+      "x": 3040,
+      "y": 1840,
+      "w": 800,
+      "h": 800,
+      "title": "Logo V1 (logotype)"
+    },
+    "OnbBienvenue.dc.html": {
+      "x": 0,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A1 · Bienvenue"
+    },
+    "OnbProfil.dc.html": {
+      "x": 470,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A2 · Où tu en es"
+    },
+    "OnbInstrument.dc.html": {
+      "x": 940,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A3 · Ton instrument"
+    },
+    "OnbMorceau.dc.html": {
+      "x": 3290,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A8 · Choisis ton morceau"
+    },
+    "OnbRythme.dc.html": {
+      "x": 3760,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A9 · Ton rythme et ta date"
+    },
+    "OnbParcours.dc.html": {
+      "x": 4230,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A10 · Ton parcours"
+    },
+    "OnbRappel.dc.html": {
+      "x": 4700,
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "A11 · Ton rappel"
+    },
+    "EcoMicro.dc.html": {
+      "x": 0,
+      "y": 4250,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "B1 · Autoriser le micro"
+    },
+    "EcoCalibration.dc.html": {
+      "x": 470,
+      "y": 4250,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "B2 · Calibration"
+    },
+    "EcoMidi.dc.html": {
+      "x": 940,
+      "y": 4250,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "B3 · Clavier MIDI (option)"
+    },
+    "EcoProbleme.dc.html": {
+      "x": 1410,
+      "y": 4250,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "B4 · Je t'entends mal"
+    },
+    "SeaEssai.dc.html": {
+      "x": 0,
+      "y": 5480,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "C1 · Retour sur un essai"
+    },
+    "SeaFin.dc.html": {
+      "x": 470,
+      "y": 5480,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "C2 · Fin de séance"
+    },
+    "SeaGelee.dc.html": {
+      "x": 940,
+      "y": 5480,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "C3 · Série gelée"
+    },
+    "SeaProgres.dc.html": {
+      "x": 1410,
+      "y": 5480,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "C4 · Mes progrès"
+    },
+    "SeaTermine.dc.html": {
+      "x": 1880,
+      "y": 5480,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "C5 · Morceau terminé"
+    },
+    "SeaOffre.dc.html": {
+      "x": 2350,
+      "y": 5480,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "title": "C6 · Essai sans piège"
+    },
+    "OnbNiveau.dc.html": {
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "x": 1410,
+      "title": "A4 · Faire connaissance"
+    },
+    "OnbTestJeu.dc.html": {
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "x": 1880,
+      "title": "A5 · Joue-moi quelque chose"
+    },
+    "OnbQuestions.dc.html": {
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "x": 2350,
+      "title": "A6 · Quelques questions"
+    },
+    "OnbResultat.dc.html": {
+      "y": 3020,
+      "w": 390,
+      "h": 844,
+      "radius": 36,
+      "is_interactive": true,
+      "x": 2820,
+      "title": "A7 · Ton point de départ"
+    },
+    "LogoMascotte.dc.html": {
+      "x": 4080,
+      "y": 0,
+      "w": 1024,
+      "h": 1024,
+      "title": "Export · logo.png (Tic en vedette)"
+    },
+    "BanniereMascotte.dc.html": {
+      "x": 4080,
+      "y": 1144,
+      "w": 1600,
+      "h": 600,
+      "title": "Export · banner.png (Tic en vedette)"
+    },
+    "EssaiLogotype.dc.html": {
+      "x": 5184,
+      "y": 0,
+      "w": 1280,
+      "h": 640,
+      "title": "Essai · logotype sans barre transversale"
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "BrandLogo.dc.html",
+    "BrandCouleurs.dc.html",
+    "BrandTypo.dc.html",
+    "BrandMascotte.dc.html",
+    "BrandTon.dc.html",
+    "BrandComposants.dc.html",
+    "Banniere.dc.html",
+    "LogoExport.dc.html",
+    "BanniereMascotte.dc.html",
+    "LogoMascotte.dc.html",
+    "OnbBienvenue.dc.html",
+    "OnbProfil.dc.html",
+    "OnbInstrument.dc.html",
+    "OnbNiveau.dc.html",
+    "OnbTestJeu.dc.html",
+    "OnbQuestions.dc.html",
+    "OnbResultat.dc.html",
+    "OnbMorceau.dc.html",
+    "OnbRythme.dc.html",
+    "OnbParcours.dc.html",
+    "OnbRappel.dc.html",
+    "EcoMicro.dc.html",
+    "EcoCalibration.dc.html",
+    "EcoMidi.dc.html",
+    "EcoProbleme.dc.html",
+    "SeaEssai.dc.html",
+    "SeaFin.dc.html",
+    "SeaGelee.dc.html",
+    "SeaProgres.dc.html",
+    "SeaTermine.dc.html",
+    "SeaOffre.dc.html",
+    "EssaiLogotype.dc.html"
+  ],
+  "notes": {
+    "identite": {
+      "kind": "title1",
+      "x": 0,
+      "y": -300,
+      "text": "Identité de Tic : le guide de marque",
+      "maxW": 6464
+    },
+    "onboarding": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2760,
+      "text": "A · Premiers pas : du morceau choisi à la date d'arrivée",
+      "maxW": 5090
+    },
+    "ecoute": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3990,
+      "text": "B · Écouter : micro d'abord, MIDI en option",
+      "maxW": 1800
+    },
+    "seance": {
+      "kind": "title1",
+      "x": 0,
+      "y": 5220,
+      "text": "C · Séance et progrès visibles",
+      "maxW": 2740
+    }
+  }
+}

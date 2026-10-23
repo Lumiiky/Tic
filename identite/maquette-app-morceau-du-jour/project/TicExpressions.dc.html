@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Expressions de Tic</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1040px; height: 600px; box-sizing: border-box; background: #FFF3E0; padding: 44px 40px; display: flex; flex-direction: column; gap: 28px; font-family: 'Baloo 2', sans-serif; color: #1F4D3A">
+  <div style="font-weight: 800; font-size: 36px; line-height: 1">Tic réagit à ta pratique</div>
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; flex: 1">
+
+    <div style="background: #F9E2C2; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px">
+      <svg width="180" height="180" viewBox="0 0 200 200" role="img" aria-label="Tic content">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <circle cx="90" cy="96" r="6" fill="#1F4D3A"></circle>
+        <circle cx="110" cy="96" r="6" fill="#1F4D3A"></circle>
+        <path d="M90 113 Q 100 122 110 113" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <rect x="126" y="85" width="20" height="14" rx="4" fill="#1F4D3A" transform="rotate(33 136 92)"></rect>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px">Content</div>
+      <div style="font-weight: 600; font-size: 15px; text-align: center; color: #3C6B57">Session réussie</div>
+    </div>
+
+    <div style="background: #F9E2C2; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px">
+      <svg width="180" height="180" viewBox="0 0 200 200" role="img" aria-label="Tic concentré">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <line x1="82" y1="85" x2="95" y2="89" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <line x1="105" y1="89" x2="118" y2="85" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <circle cx="90" cy="99" r="5" fill="#1F4D3A"></circle>
+        <circle cx="110" cy="99" r="5" fill="#1F4D3A"></circle>
+        <line x1="94" y1="116" x2="106" y2="116" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></line>
+        <line x1="100" y1="148" x2="44" y2="64" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <rect x="54" y="86" width="20" height="14" rx="4" fill="#1F4D3A" transform="rotate(-34 64 93)"></rect>
+        <path d="M30 70 q -6 8 -4 18" fill="none" stroke="#E5683A" stroke-width="4" stroke-linecap="round"></path>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px">Concentré</div>
+      <div style="font-weight: 600; font-size: 15px; text-align: center; color: #3C6B57">Pendant l'exercice</div>
+    </div>
+
+    <div style="background: #1F4D3A; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px; color: #FFF3E0">
+      <svg width="180" height="180" viewBox="0 0 200 200" role="img" aria-label="Tic fait la fête">
+        <rect x="30" y="40" width="10" height="6" rx="2" fill="#FFD23F" transform="rotate(-25 35 43)"></rect>
+        <rect x="160" y="110" width="10" height="6" rx="2" fill="#FFD23F" transform="rotate(30 165 113)"></rect>
+        <circle cx="40" cy="120" r="5" fill="#FF8A5B"></circle>
+        <circle cx="168" cy="30" r="4" fill="#FFF3E0"></circle>
+        <rect x="24" y="80" width="9" height="5" rx="2" fill="#FFF3E0" transform="rotate(40 28 82)"></rect>
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <path d="M84 99 L90 92 L96 99" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M104 99 L110 92 L116 99" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M88 108 Q 100 130 112 108 Z" fill="#1F4D3A" stroke="#1F4D3A" stroke-width="3" stroke-linejoin="round"></path>
+        <line x1="100" y1="148" x2="160" y2="52" stroke="#FFF3E0" stroke-width="7" stroke-linecap="round"></line>
+        <rect x="128" y="81" width="20" height="14" rx="4" fill="#FFF3E0" transform="rotate(32 138 88)"></rect>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px">En fête</div>
+      <div style="font-weight: 600; font-size: 15px; text-align: center; color: #CFE3D8">Morceau terminé</div>
+    </div>
+
+    <div style="background: #F9E2C2; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px">
+      <svg width="180" height="180" viewBox="0 0 200 200" role="img" aria-label="Tic endormi">
+        <line x1="100" y1="148" x2="100" y2="22" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <path d="M84 96 Q 90 102 96 96" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <path d="M104 96 Q 110 102 116 96" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <circle cx="100" cy="116" r="4" fill="#1F4D3A"></circle>
+        <g fill="#1F4D3A" font-family="'Baloo 2', sans-serif" font-weight="800">
+          <text x="132" y="52" font-size="20">z</text>
+          <text x="148" y="34" font-size="26">z</text>
+        </g>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px">Endormi</div>
+      <div style="font-weight: 600; font-size: 15px; text-align: center; color: #3C6B57">Rappel du jour</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1040,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

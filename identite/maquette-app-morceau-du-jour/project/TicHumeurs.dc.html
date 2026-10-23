@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Les humeurs de Tic</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1900px; height: 1040px; box-sizing: border-box; background: #FFF3E0; padding: 48px 40px 40px; display: flex; flex-direction: column; gap: 28px; font-family: 'Baloo 2', sans-serif; color: #1F4D3A">
+  <div style="display: flex; align-items: baseline; justify-content: space-between">
+    <div style="font-weight: 800; font-size: 44px; line-height: 1">Les humeurs de Tic</div>
+    <div style="font-weight: 600; font-size: 18px; color: #4E6E61">Une humeur = un moment de l'app</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; flex: 1">
+
+    <!-- 1 Content -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic content">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <circle cx="90" cy="96" r="6" fill="#1F4D3A"></circle><circle cx="110" cy="96" r="6" fill="#1F4D3A"></circle>
+        <path d="M90 113 Q 100 122 110 113" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Content</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">Session terminée</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Joli ! On se revoit demain ? »</div>
+    </div>
+
+    <!-- 2 Concentré -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic concentré">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <line x1="82" y1="85" x2="95" y2="89" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line><line x1="105" y1="89" x2="118" y2="85" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <circle cx="90" cy="99" r="5" fill="#1F4D3A"></circle><circle cx="110" cy="99" r="5" fill="#1F4D3A"></circle>
+        <line x1="94" y1="116" x2="106" y2="116" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></line>
+        <line x1="100" y1="148" x2="44" y2="64" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Concentré</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">Pendant un exercice</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Je compte avec toi : 1, 2, 3… »</div>
+    </div>
+
+    <!-- 3 À l'écoute -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic à l'écoute">
+        <path d="M44 84 q -8 14 0 28" fill="none" stroke="#2E8A5C" stroke-width="4" stroke-linecap="round"></path>
+        <path d="M32 76 q -12 22 0 44" fill="none" stroke="#2E8A5C" stroke-width="4" stroke-linecap="round" opacity="0.6"></path>
+        <path d="M20 68 q -16 30 0 60" fill="none" stroke="#2E8A5C" stroke-width="4" stroke-linecap="round" opacity="0.3"></path>
+        <line x1="100" y1="148" x2="122" y2="24" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <circle cx="88" cy="92" r="6" fill="#1F4D3A"></circle><circle cx="108" cy="92" r="6" fill="#1F4D3A"></circle>
+        <circle cx="98" cy="116" r="4" fill="#1F4D3A"></circle>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">À l'écoute</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">L'app écoute ton jeu</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Vas-y, je t'écoute. »</div>
+    </div>
+
+    <!-- 4 Bienveillant -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic bienveillant">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <line x1="83" y1="86" x2="95" y2="83" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line><line x1="105" y1="83" x2="117" y2="86" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <circle cx="90" cy="97" r="6" fill="#1F4D3A"></circle><circle cx="110" cy="97" r="6" fill="#1F4D3A"></circle>
+        <path d="M93 114 Q 100 119 107 114" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <line x1="100" y1="148" x2="146" y2="60" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <path d="M162 50 c -5 -8 -16 -3 -11 6 l 11 10 l 11 -10 c 5 -9 -6 -14 -11 -6 z" fill="#E5683A"></path>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Bienveillant</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">Après un essai raté</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Pas grave. On ralentit un peu ? »</div>
+    </div>
+
+    <!-- 5 Épaté -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic épaté">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <line x1="83" y1="80" x2="96" y2="77" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line><line x1="104" y1="77" x2="117" y2="80" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <circle cx="90" cy="95" r="8" fill="#1F4D3A"></circle><circle cx="110" cy="95" r="8" fill="#1F4D3A"></circle>
+        <circle cx="92.5" cy="92.5" r="2.5" fill="#FFF3E0"></circle><circle cx="112.5" cy="92.5" r="2.5" fill="#FFF3E0"></circle>
+        <ellipse cx="100" cy="119" rx="6" ry="8" fill="#1F4D3A"></ellipse>
+        <line x1="100" y1="148" x2="150" y2="30" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <line x1="164" y1="44" x2="176" y2="36" stroke="#E5683A" stroke-width="4" stroke-linecap="round"></line>
+        <line x1="166" y1="58" x2="180" y2="58" stroke="#E5683A" stroke-width="4" stroke-linecap="round"></line>
+        <line x1="160" y1="30" x2="164" y2="18" stroke="#E5683A" stroke-width="4" stroke-linecap="round"></line>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Épaté</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">Validé du premier coup</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Du premier coup ?! »</div>
+    </div>
+
+    <!-- 6 Curieux -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic curieux">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <line x1="104" y1="80" x2="118" y2="76" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <circle cx="90" cy="97" r="5.5" fill="#1F4D3A"></circle><circle cx="110" cy="95" r="7.5" fill="#1F4D3A"></circle>
+        <path d="M92 116 Q 101 120 109 113" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <line x1="100" y1="148" x2="156" y2="62" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <text x="152" y="50" font-family="'Baloo 2', sans-serif" font-weight="800" font-size="34" fill="#2E8A5C">?</text>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Curieux</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">Vote du mois, nouveau morceau</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« On apprend quoi ce mois-ci ? »</div>
+    </div>
+
+    <!-- 7 Endormi -->
+    <div style="background: #F9E2C2; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic endormi">
+        <line x1="100" y1="148" x2="100" y2="22" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <path d="M84 96 Q 90 102 96 96" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path><path d="M104 96 Q 110 102 116 96" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <circle cx="100" cy="116" r="4" fill="#1F4D3A"></circle>
+        <g fill="#1F4D3A" font-family="'Baloo 2', sans-serif" font-weight="800"><text x="132" y="52" font-size="20">z</text><text x="148" y="34" font-size="26">z</text></g>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Endormi</div>
+      <div style="font-weight: 600; font-size: 14px; color: #4E6E61; text-align: center">Rappel du jour</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Psst… ton refrain t'attend. »</div>
+    </div>
+
+    <!-- 8 Gelé -->
+    <div style="background: #DDEBF5; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic frigorifié, la série est gelée">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <path d="M76 124 Q 100 134 124 124 L 126 138 Q 100 148 74 138 Z" fill="#3E7CB1"></path>
+        <rect x="108" y="132" width="10" height="26" rx="3" fill="#3E7CB1"></rect>
+        <line x1="84" y1="88" x2="95" y2="84" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line><line x1="105" y1="84" x2="116" y2="88" stroke="#1F4D3A" stroke-width="4" stroke-linecap="round"></line>
+        <circle cx="90" cy="98" r="5.5" fill="#1F4D3A"></circle><circle cx="110" cy="98" r="5.5" fill="#1F4D3A"></circle>
+        <path d="M92 114 l4 -3 l4 3 l4 -3 l4 3" fill="none" stroke="#1F4D3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <line x1="100" y1="148" x2="146" y2="70" stroke="#1F4D3A" stroke-width="7" stroke-linecap="round"></line>
+        <g stroke="#3E7CB1" stroke-width="3.5" stroke-linecap="round"><line x1="162" y1="30" x2="162" y2="60"></line><line x1="149" y1="37" x2="175" y2="53"></line><line x1="149" y1="53" x2="175" y2="37"></line></g>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Frigorifié</div>
+      <div style="font-weight: 600; font-size: 14px; color: #34596F; text-align: center">Un jour raté, série gelée</div>
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Ta série est gelée, pas perdue. »</div>
+    </div>
+
+    <!-- 9 Fier -->
+    <div style="background: #1F4D3A; color: #FFF3E0; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic fier">
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <path d="M84 98 Q 90 91 96 98" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path><path d="M104 98 Q 110 91 116 98" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <path d="M88 111 Q 100 124 112 111" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></path>
+        <line x1="100" y1="148" x2="156" y2="62" stroke="#FFF3E0" stroke-width="7" stroke-linecap="round"></line>
+        <path d="M100 126 l4.2 8.6 9.5 1.4 -6.9 6.7 1.6 9.4 -8.4 -4.4 -8.4 4.4 1.6 -9.4 -6.9 -6.7 9.5 -1.4 z" fill="#FFD23F"></path>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">Fier</div>
+      <div style="font-weight: 600; font-size: 14px; color: #CFE3D8; text-align: center">7 jours d'affilée</div>
+      <div style="background: #FFF3E0; color: #1F4D3A; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Une semaine sans rater ! »</div>
+    </div>
+
+    <!-- 10 En fête -->
+    <div style="background: #1F4D3A; color: #FFF3E0; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px">
+      <svg width="150" height="150" viewBox="0 0 200 200" role="img" aria-label="Tic fait la fête">
+        <rect x="30" y="40" width="10" height="6" rx="2" fill="#FFD23F" transform="rotate(-25 35 43)"></rect>
+        <rect x="160" y="110" width="10" height="6" rx="2" fill="#FFD23F" transform="rotate(30 165 113)"></rect>
+        <circle cx="40" cy="120" r="5" fill="#FF8A5B"></circle><circle cx="168" cy="30" r="4" fill="#FFF3E0"></circle>
+        <rect x="24" y="80" width="9" height="5" rx="2" fill="#FFF3E0" transform="rotate(40 28 82)"></rect>
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <path d="M84 99 L90 92 L96 99" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M104 99 L110 92 L116 99" fill="none" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M88 108 Q 100 130 112 108 Z" fill="#1F4D3A" stroke="#1F4D3A" stroke-width="3" stroke-linejoin="round"></path>
+        <line x1="100" y1="148" x2="160" y2="52" stroke="#FFF3E0" stroke-width="7" stroke-linecap="round"></line>
+      </svg>
+      <div style="font-weight: 800; font-size: 22px; line-height: 1">En fête</div>
+      <div style="font-weight: 600; font-size: 14px; color: #CFE3D8; text-align: center">Morceau joué en entier</div>
+      <div style="background: #FFF3E0; color: #1F4D3A; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 15px; text-align: center; margin-top: auto">« Tu l'as joué en entier ! »</div>
+    </div>
+
+    <!-- 11 En feu -->
+    <div style="grid-column: span 2; background: #2A1A12; color: #FFF3E0; border-radius: 26px; padding: 20px 22px; display: flex; align-items: center; gap: 18px">
+      <svg width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="Tic en feu, une flamme sur la tête" style="flex-shrink: 0">
+        <path d="M100 2 C 112 22, 128 26, 124 50 C 132 44, 136 36, 134 26 C 150 44, 148 70, 128 80 L 72 80 C 52 70, 50 44, 66 26 C 64 36, 68 44, 76 50 C 72 26, 88 22, 100 2 Z" fill="#E8452C"></path>
+        <path d="M100 22 C 108 34, 118 38, 114 56 C 120 52, 122 46, 122 42 C 130 54, 126 70, 116 78 L 84 78 C 74 70, 70 54, 78 42 C 78 46, 80 52, 86 56 C 82 38, 92 34, 100 22 Z" fill="#FFD23F"></path>
+        <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="#FF8A5B"></path>
+        <rect x="62" y="148" width="76" height="20" rx="6" fill="#E5683A"></rect>
+        <line x1="82" y1="84" x2="95" y2="89" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></line><line x1="105" y1="89" x2="118" y2="84" stroke="#1F4D3A" stroke-width="4.5" stroke-linecap="round"></line>
+        <circle cx="90" cy="99" r="6.5" fill="#1F4D3A"></circle><circle cx="110" cy="99" r="6.5" fill="#1F4D3A"></circle>
+        <circle cx="92.2" cy="96.8" r="2.2" fill="#FFF3E0"></circle><circle cx="112.2" cy="96.8" r="2.2" fill="#FFF3E0"></circle>
+        <path d="M86 112 Q 100 130 114 112 Z" fill="#1F4D3A" stroke="#1F4D3A" stroke-width="3" stroke-linejoin="round"></path>
+        <line x1="100" y1="148" x2="154" y2="66" stroke="#FFF3E0" stroke-width="7" stroke-linecap="round"></line>
+        <path d="M158 40 C 164 50, 172 52, 168 62 C 166 70, 152 70, 150 62 C 148 56, 152 52, 154 48 C 154 52, 156 54, 158 54 C 156 48, 156 44, 158 40 Z" fill="#FFD23F" stroke="#E8452C" stroke-width="3" stroke-linejoin="round"></path>
+      </svg>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 8px">
+        <div style="font-weight: 800; font-size: 32px; line-height: 1">En feu</div>
+        <div style="font-weight: 600; font-size: 15px; color: #F2C9A8">Série de 3 jours et plus. La flamme grandit avec la série.</div>
+        <div style="background: #FFF3E0; color: #1F4D3A; border-radius: 16px; padding: 8px 12px; font-weight: 600; font-size: 16px; align-self: flex-start">« 12 jours ! Rien ne m'arrête ! »</div>
+        <div style="display: flex; gap: 8px; margin-top: 6px; align-items: flex-end">
+          <div style="display: flex; align-items: center; gap: 4px; background: #3D261A; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 14px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8A5B" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-5 0-8z"></path></svg>3 j
+          </div>
+          <div style="display: flex; align-items: center; gap: 4px; background: #4A2A18; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 15px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#E8452C" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-5 0-8z"></path></svg>7 j
+          </div>
+          <div style="display: flex; align-items: center; gap: 4px; background: #5C3018; padding: 6px 14px; border-radius: 999px; font-weight: 800; font-size: 16px; color: #FFD23F">
+            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-5 0-8z" fill="#E8452C"></path><path d="M12 9c1 2 3 3 3 6a3 3 0 0 1-6 0c0-1.5 1-2.5 1.5-3.5 .5 1 1 1.5 1.5 1.5 0-1.5-.5-2.5 0-4z" fill="#FFD23F"></path></svg>30 j
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1900,"height":1040}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

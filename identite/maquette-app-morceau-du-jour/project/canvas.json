@@ -1,0 +1,44 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "LogoBis.dc.html": {"h": 600, "title": "Logo H · Bis !", "w": 560, "x": 1920, "y": 2300},
+    "LogoBouchee.dc.html": {"h": 600, "title": "Logo E · Bouchée", "w": 560, "x": 0, "y": 2300},
+    "LogoCap.dc.html": {"h": 600, "title": "Logo D · Cap", "w": 560, "x": 1920, "y": 1300},
+    "LogoEncore.dc.html": {"h": 600, "title": "Logo C · Encore", "w": 560, "x": 1280, "y": 1300},
+    "LogoGammes.dc.html": {"h": 600, "title": "Logo F · Gammes", "w": 560, "x": 640, "y": 2300},
+    "LogoMesure.dc.html": {"h": 600, "title": "Logo B · Mesure", "w": 560, "x": 640, "y": 1300},
+    "LogoRefrain.dc.html": {"h": 600, "title": "Logo A · Refrain", "w": 560, "x": 0, "y": 1300},
+    "LogoTic.dc.html": {"h": 600, "title": "Logo G · Tic", "w": 560, "x": 1280, "y": 2300},
+    "Main.dc.html": {"h": 844, "is_interactive": true, "radius": 36, "title": "1 · Mon morceau", "w": 390, "x": 0, "y": 0},
+    "Practice.dc.html": {"h": 844, "radius": 36, "title": "3 · Pratique", "w": 390, "x": 940, "y": 0},
+    "Session.dc.html": {"h": 844, "is_interactive": true, "radius": 36, "title": "2 · Session du jour", "w": 390, "x": 470, "y": 0},
+    "TicExpressions.dc.html": {"h": 600, "title": "Tic · Expressions de la mascotte", "w": 1040, "x": 0, "y": 3300},
+    "TicHome.dc.html": {"h": 844, "is_interactive": true, "radius": 36, "title": "Tic · Écran d'accueil", "w": 390, "x": 2400, "y": 3300},
+    "TicHumeurs.dc.html": {"h": 1040, "title": "Tic · Les 11 humeurs", "w": 1900, "x": 0, "y": 4500},
+    "TicIcons.dc.html": {"h": 600, "title": "Tic · Icônes d'app", "w": 560, "x": 1760, "y": 3300},
+    "TicWordmark.dc.html": {"h": 600, "title": "Tic · Logotype", "w": 560, "x": 1120, "y": 3300},
+    "JeuPiano.dc.html": {"h": 390, "radius": 36, "title": "Jeu · Piano", "w": 844, "x": 0, "y": 6100},
+    "JeuGuitare.dc.html": {"h": 390, "radius": 36, "title": "Jeu · Guitare", "w": 844, "x": 924, "y": 6100}
+  },
+  "createdOnFiles": {"at": "2026-10-15T11:45:00Z", "v": 1},
+  "designSystems": [],
+  "launch": {"view": "canvas"},
+  "notes": {
+    "humeurs": {"kind": "title1", "maxW": 1900, "text": "Les humeurs de Tic", "w": 240, "x": -63, "y": 4244},
+    "logos": {"kind": "title1", "maxW": 2480, "text": "Pistes de logo", "w": 240, "x": 0, "y": 1040},
+    "logos2": {"kind": "title1", "maxW": 2480, "text": "Pistes plus audacieuses", "w": 240, "x": 0, "y": 2040},
+    "tic": {"kind": "title1", "maxW": 2790, "text": "Tic, le métronome : piste développée", "w": 240, "x": 0, "y": 3040},
+    "titre": {"kind": "title1", "maxW": 1330, "text": "Un morceau, une partie par jour", "w": 240, "x": 0, "y": -300},
+    "jeu": {"kind": "title1", "maxW": 1768, "text": "Mode jeu : les notes défilent", "x": 0, "y": 5840}
+  },
+  "order": [
+    "Main.dc.html", "Session.dc.html", "Practice.dc.html",
+    "LogoRefrain.dc.html", "LogoMesure.dc.html", "LogoEncore.dc.html", "LogoCap.dc.html",
+    "LogoBouchee.dc.html", "LogoGammes.dc.html", "LogoTic.dc.html", "LogoBis.dc.html",
+    "TicExpressions.dc.html", "TicWordmark.dc.html", "TicIcons.dc.html", "TicHome.dc.html", "TicHumeurs.dc.html",
+    "JeuPiano.dc.html", "JeuGuitare.dc.html"
+  ],
+  "pages": [],
+  "title": "Maquette app morceau du jour"
+}

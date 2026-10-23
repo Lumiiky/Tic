@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Joue-moi quelque chose</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4D3A}a:hover{color:#133326}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFF3E0; color: #1F4D3A; font-family: 'Baloo 2', sans-serif; display: flex; flex-direction: column; padding: 56px 20px 24px; gap: 14px; overflow: hidden">
+  <div style="display: flex; align-items: center; justify-content: space-between">
+    <a href="OnbNiveau.dc.html" aria-label="Retour" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 0 #F0DCC0; flex-shrink: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+    <div style="display: flex; align-items: center; gap: 6px; background: #DCEBE3; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 14px"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="#256B47"></circle></svg>Je t'écoute</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; background: #F3DFC2; border-radius: 16px; padding: 4px" role="tablist" aria-label="Que jouer">
+    <button type="button" role="tab" aria-selected="{{ tabA }}" onClick="{{ showExtraits }}" style="{{ tabAStyle }}">Mes extraits</button>
+    <button type="button" role="tab" aria-selected="{{ tabB }}" onClick="{{ showMien }}" style="{{ tabBStyle }}">Mon morceau à moi</button>
+  </div>
+
+  <sc-if value="{{ extraits }}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div>
+        <div style="font-weight: 600; font-size: 15px; color: #46655A">Extrait {{ n }} sur 3 · {{ level }}</div>
+        <h1 style="margin: 0; font-weight: 800; font-size: 28px; line-height: 1.1">{{ title }}</h1>
+      </div>
+      <div style="background: #2A2140; color: #FFF3E0; border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+        <div style="font-weight: 600; font-size: 14px; color: #C9BEE0">{{ hint }}</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px">
+          <sc-for list="{{ notes }}" as="nt" hint-placeholder-count="8">
+            <span style="min-width: 38px; text-align: center; padding: 6px 8px; border-radius: 12px; font-weight: 800; font-size: 16px; background: {{ nt.bg }}; color: {{ nt.fg }}">{{ nt.label }}</span>
+          </sc-for>
+        </div>
+        <div style="height: 6px; border-radius: 3px; background: #3D3260; overflow: hidden"><div style="height: 6px; width: {{ pct }}; background: #FFD23F; border-radius: 3px"></div></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{ signals }}" as="s" hint-placeholder-count="3">
+          <div style="background: #FFFFFF; border-radius: 16px; padding: 10px; box-shadow: 0 2px 0 #F0DCC0; text-align: center">
+            <div style="font-weight: 800; font-size: 15px; color: {{ s.color }}">{{ s.value }}</div>
+            <div style="font-weight: 600; font-size: 13px; color: #46655A">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ mien }}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <h1 style="margin: 0; font-weight: 800; font-size: 28px; line-height: 1.1">Joue ce que tu sais le mieux</h1>
+      <div style="background: #2A2140; color: #FFF3E0; border-radius: 24px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 8px">
+        <div style="font-weight: 800; font-size: 44px; line-height: 1">0:42</div>
+        <div style="font-weight: 600; font-size: 14px; color: #C9BEE0">sur 1:00 maximum</div>
+        <div style="display: flex; align-items: center; gap: 3px; height: 40px" aria-hidden="true">
+          <div style="width: 5px; height: 12px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 26px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 34px; border-radius: 3px; background: #FFD23F"></div><div style="width: 5px; height: 20px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 30px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 38px; border-radius: 3px; background: #FFD23F"></div><div style="width: 5px; height: 16px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 24px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 32px; border-radius: 3px; background: #FFD23F"></div><div style="width: 5px; height: 18px; border-radius: 3px; background: #7FD1A3"></div><div style="width: 5px; height: 10px; border-radius: 3px; background: #5A4E78"></div><div style="width: 5px; height: 8px; border-radius: 3px; background: #5A4E78"></div>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 14px; box-shadow: 0 2px 0 #F0DCC0; font-weight: 600; font-size: 14px; line-height: 1.4">Sans la partition de ton morceau, je repère surtout ton aisance : régularité, mains ensemble, accords. Pas les fausses notes.</div>
+    </div>
+  </sc-if>
+
+  <div style="flex: 1"></div>
+
+  <sc-if value="{{ canNext }}" hint-placeholder-val="{{ true }}">
+    <button type="button" onClick="{{ next }}" style="min-height: 56px; border: none; border-radius: 20px; background: #FFFFFF; color: #1F4D3A; font-family: inherit; font-weight: 800; font-size: 17px; box-shadow: 0 3px 0 #F0DCC0; cursor: pointer">Simuler : extrait joué</button>
+  </sc-if>
+  <a href="OnbResultat.dc.html" style="min-height: 60px; border-radius: 20px; background: #1F4D3A; color: #FFF3E0; text-decoration: none; font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 #133326">{{ finishLabel }}</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'extraits', step: 1 };
+  }
+  renderVals() {
+    const ex = [
+      { level: 'une main', title: 'Au clair de la lune', hint: 'Main droite seule, tempo lent', notes: ['Do', 'Do', 'Do', 'Ré', 'Mi', 'Ré', 'Do', 'Mi', 'Ré', 'Ré', 'Do'] },
+      { level: 'deux mains', title: 'Hymne à la joie', hint: 'Mélodie à droite, une note de basse à gauche', notes: ['Mi', 'Mi', 'Fa', 'Sol', 'Sol', 'Fa', 'Mi', 'Ré', 'Do', 'Do', 'Ré', 'Mi'] },
+      { level: 'accords et rythme', title: 'Menuet en sol', hint: 'Deux mains, croches et accords', notes: ['Ré', 'Sol', 'La', 'Si', 'Do', 'Ré', 'Sol', 'Sol', 'Mi', 'Do', 'Ré', 'Mi'] }
+    ];
+    const st = this.state.step;
+    const cur = ex[st - 1];
+    const played = 7;
+    const notes = cur.notes.map((label, i) => ({
+      label,
+      bg: i < played ? '#7FD1A3' : (i === played ? '#FFD23F' : '#3D3260'),
+      fg: i <= played ? '#1F4D3A' : '#C9BEE0'
+    }));
+    const signals = [
+      { label: 'notes justes', value: st === 3 ? '6 / 7' : '7 / 7', color: st === 3 ? '#A63E17' : '#256B47' },
+      { label: 'régularité', value: st === 1 ? 'stable' : 'correcte', color: '#256B47' },
+      { label: 'deux mains', value: st === 1 ? '—' : (st === 2 ? 'oui' : 'hésitant'), color: st === 3 ? '#A63E17' : '#1F4D3A' }
+    ];
+    const tA = this.state.tab === 'extraits';
+    const on = 'min-height: 44px; border: none; border-radius: 12px; font-family: inherit; font-weight: 800; font-size: 15px; cursor: pointer; background: #FFFFFF; color: #1F4D3A; box-shadow: 0 2px 0 #E5D3B8;';
+    const off = 'min-height: 44px; border: none; border-radius: 12px; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer; background: transparent; color: #46655A;';
+    return {
+      extraits: tA,
+      mien: !tA,
+      tabA: tA ? 'true' : 'false',
+      tabB: tA ? 'false' : 'true',
+      tabAStyle: tA ? on : off,
+      tabBStyle: tA ? off : on,
+      showExtraits: () => this.setState({ tab: 'extraits' }),
+      showMien: () => this.setState({ tab: 'mien' }),
+      n: st,
+      level: cur.level,
+      title: cur.title,
+      hint: cur.hint,
+      notes,
+      pct: Math.round(played / cur.notes.length * 100) + '%',
+      signals,
+      canNext: tA && st < 3,
+      next: () => this.setState({ step: Math.min(3, st + 1) }),
+      finishLabel: tA ? (st < 3 ? 'Trop dur, j’arrête là' : 'Voir mon point de départ') : 'J’ai fini, analyse'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<title>Storyboard du teaser Tic</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Mise en page : une table de montage. Bande de temps en haut, puis un plan par ligne (vignette 16:9 à gauche, fiche à droite), puis les listes de tournage. Teinte unique, celle de la marque. */
+:root{
+  --creme:#FFF3E0; --blanc:#FFFFFF; --foret:#1F4D3A; --foret-nuit:#133326;
+  --orange:#FF8A5B; --brique:#E5683A; --soleil:#FFD23F; --mousse:#46655A;
+  --terre:#A63E17; --peche:#FFE0CF; --sable:#F3DFC2; --sauge:#DCEBE3; --ecoute:#256B47;
+  --aubergine:#2A2140; --lavande:#C9BEE0; --givre:#DDEBF5; --glacier:#2F6A99;
+  --display:"Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Nunito", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+body{background:var(--creme);color:var(--foret);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,6vw,56px)}
+h2{font-size:28px}
+h3{font-size:20px}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--terre)}
+.lede{max-width:66ch;font-size:18px;color:var(--mousse)}
+header{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+header .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{font-family:var(--display);font-weight:700;font-size:14px;padding:4px 12px;border-radius:999px;background:var(--blanc);border:1.5px solid var(--sable)}
+.hero-tic{width:150px;height:150px}
+@media (max-width:640px){header{grid-template-columns:1fr}.hero-tic{display:none}}
+
+/* bande de temps */
+.timeline{display:flex;flex-direction:column;gap:10px}
+.bar{display:flex;height:56px;border-radius:14px;overflow:hidden;border:2px solid var(--foret)}
+.bar > div{display:flex;flex-direction:column;justify-content:center;padding:0 10px;min-width:0;font-family:var(--display);font-weight:700;font-size:14px;line-height:1.15;border-right:2px solid var(--foret)}
+.bar > div:last-child{border-right:0}
+.bar small{font-weight:600;font-size:12px;opacity:.85}
+.a1{background:var(--sable)}.a2{background:var(--peche)}.a3{background:var(--sauge)}.a4{background:var(--foret);color:var(--creme)}
+.ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mousse);font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;color:var(--mousse)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* plans */
+.act{display:flex;flex-direction:column;gap:20px}
+.act-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;border-bottom:2px solid var(--foret);padding-bottom:8px}
+.act-head p{color:var(--mousse);font-size:15px}
+.shot{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:24px;background:var(--blanc);border-radius:20px;padding:18px;border:1.5px solid var(--sable)}
+@media (max-width:820px){.shot{grid-template-columns:1fr}}
+.frame{display:flex;flex-direction:column;gap:8px;min-width:0}
+.frame > svg{width:100%;height:auto;aspect-ratio:16/9;border-radius:10px;display:block;max-width:100%}
+.frame .tc{display:flex;justify-content:space-between;font-family:var(--display);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.tag{font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:6px;font-family:var(--display);font-weight:700}
+.t-film{background:var(--peche);color:var(--terre)}
+.t-anim{background:var(--sauge);color:var(--ecoute)}
+.t-maq{background:var(--givre);color:var(--glacier)}
+.t-mix{background:var(--lavande);color:var(--aubergine)}
+.info{display:flex;flex-direction:column;gap:12px;min-width:0}
+.info h3 .n{color:var(--terre);margin-right:6px;font-variant-numeric:tabular-nums}
+dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:6px 14px;margin:0;font-size:15px}
+dt{font-family:var(--display);font-weight:700;color:var(--mousse)}
+dd{margin:0}
+@media (max-width:480px){dl{grid-template-columns:1fr}dt{margin-top:6px}}
+.tic-line{background:var(--peche);border-radius:14px 14px 14px 4px;padding:6px 12px;font-family:var(--display);font-weight:700;display:inline-block}
+.who{font-family:var(--display);font-weight:700;color:var(--terre)}
+.slot{background:var(--soleil);color:var(--foret);font-family:var(--display);font-weight:700;padding:0 6px;border-radius:5px}
+
+/* listes */
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.lists{grid-template-columns:1fr}}
+.card{background:var(--blanc);border-radius:20px;padding:20px 22px;border:1.5px solid var(--sable);display:flex;flex-direction:column;gap:10px;min-width:0}
+.card.wide{grid-column:1/-1}
+.card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.card table{border-collapse:collapse;width:100%;font-size:15px}
+.tbl{overflow-x:auto}
+.card th{font-family:var(--display);text-align:left;font-weight:700;color:var(--mousse);border-bottom:2px solid var(--sable);padding:6px 10px 6px 0}
+.card td{border-bottom:1px solid var(--sable);padding:8px 10px 8px 0;vertical-align:top}
+.card td:first-child{font-family:var(--display);font-weight:700;white-space:nowrap}
+.note{font-size:14px;color:var(--mousse)}
+footer{font-size:14px;color:var(--mousse);border-top:2px solid var(--sable);padding-top:16px}
+a{color:var(--terre)}
+a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">Teaser Phase 1 · storyboard v1 · 23 octobre 2026</p>
+      <h1>Camille et la Gymnopédie</h1>
+      <p class="lede" style="margin-top:12px">Le teaser de deux minutes raconte une seule histoire : Camille reprend le piano pour un morceau précis, et Tic, le métronome, lui sert de prof jusqu'au bout. Un débutant guitare, Malik, montre que Tic marche aussi à la guitare. On finit par les preuves du terrain et un appel aux cinq partenaires.</p>
+      <div class="meta">
+        <span class="pill">1 min 59</span><span class="pill">17 plans</span><span class="pill">16:9, 1080p, 25 i/s</span><span class="pill">Français, sous-titres incrustés</span><span class="pill">&lt; 300 Mo</span>
+      </div>
+    </div>
+    <svg class="hero-tic" viewBox="0 0 200 200" role="img" aria-label="Tic, le métronome, sourit"></svg>
+  </header>
+
+  <section class="timeline" aria-label="Structure en quatre actes">
+    <div class="bar">
+      <div class="a1" style="flex:24">La friction<small>0:00 – 0:24</small></div>
+      <div class="a2" style="flex:60">Tic, le prof<small>0:24 – 1:24</small></div>
+      <div class="a3" style="flex:18">La preuve<small>1:24 – 1:42</small></div>
+      <div class="a4" style="flex:17">Rejoins-nous<small>1:42 – 1:59</small></div>
+    </div>
+    <div class="ticks"><span>0:00</span><span>0:30</span><span>1:00</span><span>1:30</span><span>1:59</span></div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--peche)"></i>Filmé : vraies personnes, vrais instruments</span>
+      <span><i class="dot" style="background:var(--sauge)"></i>Animé : Tic ou texte</span>
+      <span><i class="dot" style="background:var(--givre)"></i>Maquette : capture d'écran animée</span>
+      <span><i class="dot" style="background:var(--lavande)"></i>Mixte : filmé + maquette ou Tic incrusté</span>
+    </div>
+  </section>
+
+  <div id="shots" style="display:flex;flex-direction:column;gap:48px"></div>
+
+  <section class="act">
+    <div class="act-head"><h2>Préparer le tournage</h2><p>À tourner après le go / pivot du 15 novembre, pendant la piste promotion (16 nov. – 13 déc.).</p></div>
+    <div class="lists">
+      <div class="card wide">
+        <h3>Liste de tournage, regroupée par décor</h3>
+        <div class="tbl"><table>
+          <thead><tr><th>Décor</th><th>Plans</th><th>Ce qu'il faut filmer</th><th>Personnes et accessoires</th></tr></thead>
+          <tbody>
+            <tr><td>Salon, soir</td><td>2, 3</td><td>Plan large du piano couvert d'objets ; gros plan des mains qui hésitent puis s'arrêtent ; téléphone qui affiche une partition trop dense.</td><td>Camille. Piano droit acoustique, plaid, courrier, lampe chaude, téléphone.</td></tr>
+            <tr><td>Salon, même soir</td><td>6</td><td>Gros plan fixe sur un vrai métronome mécanique posé sur le piano, 3 s sans bouger (sert au fondu vers Tic).</td><td>Métronome mécanique à balancier, trépied.</td></tr>
+            <tr><td>Salon, jour</td><td>7, 8, 10, 11</td><td>Pouce qui touche l'écran (sur fond vert ou écran éteint pour incruster) ; téléphone posé sur le pupitre ; Camille joue la partie 1 lentement, main droite seule puis deux mains ; plan au-dessus du clavier.</td><td>Camille. Téléphone sur pupitre, support de téléphone, enregistreur audio près du piano.</td></tr>
+            <tr><td>Salon, fin d'après-midi</td><td>14</td><td>Plan large et chaleureux : Camille joue la Gymnopédie en entier, sourit à la fin. Prévoir aussi un plan des mains.</td><td>Camille, piano rangé et fleuri (contraste avec le plan 2).</td></tr>
+            <tr><td>Chambre ou canapé</td><td>4, 12</td><td>Malik décroche d'une app de gammes et pose la guitare contre le mur ; puis la reprend et joue la Romance, téléphone sur un pied.</td><td>Malik. Guitare classique ou folk, pied de téléphone, guitare contre un mur.</td></tr>
+            <tr><td>Inserts, n'importe où</td><td>13</td><td>Main qui balaie la notification du rappel ; calendrier mural ; tasse de café posée sur le piano (passage des jours).</td><td>Téléphone, calendrier.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Camille et Malik sont joués par l'équipe ou des proches, avec une autorisation de droit à l'image signée. Ce ne sont jamais des personnes interrogées.</p>
+      </div>
+
+      <div class="card">
+        <h3>Matériel et réglages</h3>
+        <ul>
+          <li>Un téléphone récent, à l'horizontale, en 1080p ou 4K à 25 i/s, exposition et mise au point verrouillées.</li>
+          <li>Un trépied et un bras au-dessus du clavier pour les plans de mains.</li>
+          <li>Un enregistreur ou un second téléphone près de la table d'harmonie pour un son de piano propre.</li>
+          <li>Une lampe chaude pour le soir (plan 2) et la lumière du jour pour la suite : l'image se réchauffe avec le récit.</li>
+          <li>Montage dans CapCut ou DaVinci Resolve (gratuits), sous-titres incrustés.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Captures de maquettes à exporter</h3>
+        <p class="note">Depuis le guide de marque et les écrans V2, en enregistrement d'écran 1080 × 2340 environ.</p>
+        <ul>
+          <li>Plan 7 : Choisis ton morceau (A8)</li>
+          <li>Plan 8 : Ton rythme et ta date (A9), avec le curseur qui bouge</li>
+          <li>Plan 9 : Ton parcours (A10)</li>
+          <li>Plan 10 : Calibration (B2) et Tic qui tend l'oreille</li>
+          <li>Plan 11 : Jeu piano et Retour sur un essai (C1)</li>
+          <li>Plan 12 : Jeu guitare (tablature qui défile)</li>
+          <li>Plan 13 : Fin de séance (C2), Série gelée (C3), Mes progrès (C4)</li>
+          <li>Plan 14 : Morceau terminé (C5)</li>
+          <li>Plans 1 et 17 : l'intro animée de 2 s (déjà prête dans <code>identite/animation/</code>)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Son</h3>
+        <ul>
+          <li><b>Musique</b> : la Gymnopédie n°1 de Satie (domaine public), jouée et enregistrée par l'équipe. Comme l'enregistrement est le nôtre, il n'y a aucun droit de label à gérer.</li>
+          <li><b>Guitare</b> : la Romance anonyme, d'après une version IMSLP sous licence CC, pas l'arrangement de Narciso Yepes.</li>
+          <li><b>Voix de Tic</b> : une voix chaleureuse et posée, enregistrée par l'un des fondateurs. Chaque réplique apparaît aussi en bulle, pour les vues sans le son.</li>
+          <li><b>Signature sonore</b> : le « tic » d'un vrai métronome, réutilisé aux transitions.</li>
+          <li>Tic ne parle jamais pendant que quelqu'un joue (règle de la marque) : seul son balancier bat le tempo.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Citations d'entretiens et anonymat</h3>
+        <ul>
+          <li>Trois emplacements jaunes <span class="slot">[CITATION]</span> et un <span class="slot">[CHIFFRE]</span>, à remplir après la synthèse du terrain.</li>
+          <li>Citations affichées en texte et lues par une autre voix que celle de la personne interrogée.</li>
+          <li>Pas de prénom, pas de visage, pas de ville, pas d'âge précis : seulement le profil (« musicienne qui reprend », « débutant guitare »).</li>
+          <li>Vérifier sur chaque fiche d'entretien que la personne a accepté qu'une citation anonyme soit publiée.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Avant d'exporter</h3>
+        <ul>
+          <li>Durée sous 2:00 (cible 1:59).</li>
+          <li>Fichier sous 300 Mo : en 1080p H.264 à 8 Mb/s, deux minutes font environ 120 Mo.</li>
+          <li>Déposer en <code>assets/teaser.mp4</code>, ou un lien dans <code>assets/teaser.md</code>.</li>
+          <li>Les dates et durées affichées dans les maquettes sont illustratives : les garder cohérentes d'un plan à l'autre (10 min, 4 jours par semaine, arrivée vers le 12 mars).</li>
+          <li>Vérifier le nom « Tic » (INPI, stores) avant la mise en ligne publique.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>Source : <code>teaser/storyboard-teaser-tic.html</code> dans les fichiers du projet. Personnages fictifs. Les répliques de Tic suivent le guide de marque : tutoiement, 12 mots maximum par bulle, jamais de reproche.</footer>
+</div>
+
+<script>
+const C={creme:"#FFF3E0",foret:"#1F4D3A",nuit:"#133326",orange:"#FF8A5B",brique:"#E5683A",soleil:"#FFD23F",mousse:"#46655A",terre:"#A63E17",peche:"#FFE0CF",sable:"#F3DFC2",sauge:"#DCEBE3",ecoute:"#256B47",aub:"#2A2140",lav:"#C9BEE0",givre:"#DDEBF5",glacier:"#2F6A99",peau:"#E9B48C",peau2:"#B9805A",bois:"#5A3A2A",bois2:"#7A4E35",soir:"#3A2E3A"};
+
+/* Tic, d'après LogoMascotte : corps 200×200, balancier en degrés (négatif = à gauche, compte ; positif = à droite, content) */
+function tic(x,y,s,ang=33,mood="content"){
+  const k=s/200, r=ang*Math.PI/180, L=108;
+  const ex=100+Math.sin(r)*L, ey=148-Math.cos(r)*L;
+  const wx=100+Math.sin(r)*62, wy=148-Math.cos(r)*62;
+  let mouth=`<path d="M87 110 Q 98 125 109 110 Z" fill="${C.foret}" stroke="${C.foret}" stroke-width="3" stroke-linejoin="round"/>`;
+  if(mood==="oreille") mouth=`<ellipse cx="99" cy="114" rx="5" ry="6" fill="${C.foret}"/>`;
+  if(mood==="fete") mouth=`<path d="M84 108 Q 99 132 114 108 Z" fill="${C.foret}"/>`;
+  const extra = mood==="fete" ? `<circle cx="40" cy="40" r="6" fill="${C.soleil}"/><rect x="150" y="30" width="10" height="10" fill="${C.soleil}" transform="rotate(20 155 35)"/><circle cx="170" cy="120" r="5" fill="${C.soleil}"/><rect x="24" y="110" width="10" height="10" fill="${C.creme}" transform="rotate(-20 29 115)"/>`
+    : "";
+  return `<g transform="translate(${x} ${y}) scale(${k})">${extra}
+    <path d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z" fill="${C.orange}"/>
+    <rect x="62" y="148" width="76" height="20" rx="6" fill="${C.brique}"/>
+    <circle cx="90" cy="95" r="7" fill="${C.foret}"/><circle cx="110" cy="95" r="7" fill="${C.foret}"/>
+    <circle cx="92.4" cy="92.6" r="2.6" fill="#FFFFFF"/><circle cx="112.4" cy="92.6" r="2.6" fill="#FFFFFF"/>
+        ${mouth}
+    <line x1="100" y1="148" x2="${ex.toFixed(1)}" y2="${ey.toFixed(1)}" stroke="${C.creme}" stroke-width="8" stroke-linecap="round"/></g>`;
+}
+/* logotype v2 statique : « t », tige orange droite centrée, point, « c » */
+function logo(cx,base,sz,fg){
+  return `${label(cx-0.1*sz,base,"t",sz,fg,"end")}<line x1="${cx}" y1="${base-0.07*sz}" x2="${cx}" y2="${base-0.46*sz}" stroke="${C.orange}" stroke-width="${0.13*sz}" stroke-linecap="round"/><circle cx="${cx}" cy="${base-0.68*sz}" r="${0.08*sz}" fill="${fg}"/>${label(cx+0.1*sz,base,"c",sz,fg,"start")}`;
+}
+function bubble(x,y,w,txt,fill=C.peche,fg=C.foret){
+  w=Math.round(txt.length*5.7+18); x=Math.max(6,Math.min(x,314-w));
+  return `<g><rect x="${x}" y="${y}" width="${w}" height="26" rx="10" fill="${fill}"/><path d="M${x+8} ${y+24} l-6 9 l14 -9z" fill="${fill}"/><text x="${x+w/2}" y="${y+17.5}" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="700" font-size="11.5" fill="${fg}">${txt}</text></g>`;
+}
+function keys(x,y,w,h,n=14,hl=[]){
+  let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#fff" stroke="#222" stroke-width="1"/>`;const kw=w/n;
+  for(let i=0;i<n;i++){ if(hl.includes(i)) s+=`<rect x="${x+i*kw}" y="${y}" width="${kw}" height="${h}" fill="${C.orange}" opacity=".85"/>`; s+=`<line x1="${x+i*kw}" y1="${y}" x2="${x+i*kw}" y2="${y+h}" stroke="#333" stroke-width=".8"/>`; }
+  for(let i=0;i<n;i++){ if([0,1,3,4,5].includes(i%7)) s+=`<rect x="${x+i*kw+kw*0.65}" y="${y}" width="${kw*0.7}" height="${h*0.6}" fill="#1b1b1b"/>`; }
+  return s;
+}
+function hand(x,y,s=1,flip=false){
+  const f=flip?-1:1;
+  return `<g transform="translate(${x} ${y}) scale(${f*s} ${s})"><ellipse cx="0" cy="0" rx="20" ry="13" fill="${C.peau}"/>${[-14,-5,4,13].map((d,i)=>`<rect x="${d-3}" y="${-2}" width="7" height="${20-(i===0||i===3?4:0)}" rx="3.5" fill="${C.peau}"/>`).join("")}<rect x="16" y="-8" width="7" height="14" rx="3.5" fill="${C.peau2}" transform="rotate(-30 18 -2)"/></g>`;
+}
+function phone(x,y,w,h,inner,bg=C.creme){
+  return `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${w*0.14}" fill="#151515"/><rect x="${x+3}" y="${y+3}" width="${w-6}" height="${h-6}" rx="${w*0.11}" fill="${bg}"/><svg x="${x+3}" y="${y+3}" width="${w-6}" height="${h-6}" viewBox="0 0 100 200" preserveAspectRatio="xMidYMid slice">${inner}</svg></g>`;
+}
+function piano(x,y,w){ // piano droit, vue de face
+  return `<rect x="${x}" y="${y}" width="${w}" height="${w*0.62}" rx="4" fill="${C.bois}"/><rect x="${x+6}" y="${y+6}" width="${w-12}" height="${w*0.22}" rx="2" fill="${C.bois2}"/><rect x="${x-6}" y="${y+w*0.42}" width="${w+12}" height="8" fill="${C.bois2}"/>${keys(x,y+w*0.42+8,w,16,16)}<rect x="${x}" y="${y+w*0.42+24}" width="${w}" height="${w*0.62-w*0.42-24+40}" fill="${C.bois}"/>`;
+}
+function guitar(x,y,s=1,rot=0){
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})"><rect x="-4" y="-120" width="8" height="90" fill="#6b4a2f"/><rect x="-7" y="-134" width="14" height="16" rx="3" fill="#3b2a1d"/><path d="M0 -32 C 26 -32 30 -10 20 0 C 36 12 34 46 0 46 C -34 46 -36 12 -20 0 C -30 -10 -26 -32 0 -32Z" fill="#C9874E"/><circle cx="0" cy="2" r="8" fill="#3b2a1d"/>${[-2,0,2].map(d=>`<line x1="${d}" y1="-120" x2="${d}" y2="30" stroke="#eee" stroke-width=".5"/>`).join("")}</g>`;
+}
+function person(x,y,s=1,shirt=C.glacier,hair="#3b2a22"){
+  return `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-30 70 Q -30 20 0 20 Q 30 20 30 70Z" fill="${shirt}"/><circle cx="0" cy="0" r="17" fill="${C.peau}"/><path d="M-18 -2 Q -18 -22 0 -22 Q 18 -22 18 -2 Q 10 -12 -18 -2Z" fill="${hair}"/></g>`;
+}
+function scr(lines){return lines}
+function label(x,y,t,size=13,fill=C.foret,anchor="start",w=800){return `<text x="${x}" y="${y}" font-family="Baloo 2, sans-serif" font-weight="${w}" font-size="${size}" fill="${fill}" text-anchor="${anchor}">${t}</text>`}
+function sub(t){return `<rect x="60" y="150" width="200" height="20" rx="4" fill="#000" opacity=".55"/>${label(160,164,t,10.5,"#fff","middle",600)}`}
+function quoteCard(n,profil){
+  return `<rect width="320" height="180" fill="${C.creme}"/><text x="34" y="78" font-family="Baloo 2" font-weight="800" font-size="70" fill="${C.orange}">«</text>
+  <rect x="70" y="54" width="200" height="22" rx="5" fill="${C.soleil}"/>${label(170,70,`[CITATION ${n}]`,13,C.foret,"middle")}
+  <rect x="70" y="84" width="180" height="7" rx="3" fill="${C.sable}"/><rect x="70" y="97" width="150" height="7" rx="3" fill="${C.sable}"/>
+  ${label(70,128,"— "+profil,11,C.mousse,"start",600)}${tic(262,108,58,-20,"oreille")}`;
+}
+const appMorceaux=`<rect width="100" height="200" fill="${C.creme}"/>${label(8,22,"Choisis ton",11)}${label(8,34,"morceau",11)}
+${["Lettre à Élise","Gymnopédie n°1","Canon en ré","Menuet en sol","Romance"].map((t,i)=>`<rect x="6" y="${44+i*24}" width="88" height="20" rx="6" fill="${i===1?C.foret:"#fff"}" stroke="${C.sable}"/>${label(12,58+i*24,t,8.5,i===1?C.creme:C.foret,"start",700)}`).join("")}
+<rect x="6" y="172" width="88" height="20" rx="8" fill="${C.foret}"/>${label(50,186,"Ce morceau",9,C.creme,"middle")}`;
+const appRythme=`<rect width="100" height="200" fill="${C.creme}"/>${label(8,22,"Ton rythme",11)}
+${label(8,46,"Par séance",8,C.mousse,"start",600)}<rect x="8" y="54" width="84" height="5" rx="2.5" fill="${C.sable}"/><rect x="8" y="54" width="34" height="5" rx="2.5" fill="${C.orange}"/><circle cx="42" cy="56.5" r="6" fill="${C.foret}"/>${label(50,76,"10 min",14,C.foret,"middle")}
+${label(8,96,"Jours par semaine",8,C.mousse,"start",600)}${[0,1,2,3,4,5,6].map(i=>`<circle cx="${14+i*12}" cy="108" r="5" fill="${i<4?C.foret:C.sable}"/>`).join("")}
+<rect x="6" y="126" width="88" height="40" rx="8" fill="${C.peche}"/>${label(50,142,"Tu y arrives",8,C.terre,"middle",700)}${label(50,158,"vers le 12 mars",11,C.foret,"middle")}`;
+const appParcours=`<rect width="100" height="200" fill="${C.creme}"/>${label(8,22,"Ton parcours",11)}
+${[["Refrain",C.ecoute,"valid"],["Partie 1",C.orange,"cours"],["Main gauche",C.sauge,"skill"],["Partie 2",C.sable,"lock"],["Partie 3",C.sable,"lock"],["Fin",C.sable,"lock"]].map((p,i)=>`<circle cx="22" cy="${44+i*24}" r="8" fill="${p[1]}" ${p[2]==="skill"?`stroke="${C.ecoute}" stroke-dasharray="3 2"`:""}/>${label(36,48+i*24,p[0],9,C.foret,"start",700)}`).join("")}
+<line x1="22" y1="52" x2="22" y2="160" stroke="${C.sable}" stroke-width="2" opacity=".6"/>${label(50,190,"Arrivée vers le 12 mars",8,C.terre,"middle",700)}`;
+const appCalib=`<rect width="100" height="200" fill="${C.creme}"/>${label(50,24,"Réglage du micro",10,C.foret,"middle")}${[0,1,2].map(i=>`<circle cx="50" cy="86" r="${20+i*14}" fill="none" stroke="${C.ecoute}" stroke-width="2" opacity="${1-i*.3}"/>`).join("")}<circle cx="50" cy="86" r="14" fill="${C.ecoute}"/>
+${label(50,148,"Joue un do",11,C.foret,"middle")}<rect x="14" y="160" width="72" height="8" rx="4" fill="${C.sauge}"/><rect x="14" y="160" width="60" height="8" rx="4" fill="${C.ecoute}"/>`;
+const appJeuPiano=`<rect width="100" height="200" fill="${C.aub}"/>${[[20,30,C.orange],[34,58,C.orange],[48,84,C.soleil],[30,110,C.orange],[62,120,C.soleil],[44,140,C.orange]].map(n=>`<rect x="${n[0]}" y="${n[1]}" width="12" height="22" rx="4" fill="${n[2]}"/>`).join("")}<line x1="0" y1="168" x2="100" y2="168" stroke="${C.lav}" stroke-width="1.5"/>${keys(0,170,100,30,10,[3])}`;
+const appTab=`<rect width="100" height="200" fill="${C.aub}"/>${[0,1,2,3,4,5].map(i=>`<line x1="0" y1="${70+i*12}" x2="100" y2="${70+i*12}" stroke="${C.lav}" stroke-width="1"/>`).join("")}${[[18,70,"0"],[36,82,"2"],[54,70,"0"],[72,94,"3"],[90,70,"0"]].map(n=>`<circle cx="${n[0]}" cy="${n[1]}" r="6" fill="${C.orange}"/>${label(n[0],n[1]+3.5,n[2],8,C.aub,"middle")}`).join("")}<line x1="22" y1="56" x2="22" y2="146" stroke="${C.soleil}" stroke-width="2"/>${label(50,40,"Mi mineur",11,C.creme,"middle")}`;
+const appEssai=`<rect width="100" height="200" fill="${C.creme}"/>${label(50,24,"Partie 1",11,C.foret,"middle")}${[90,95,70,85,100,60,90,95].map((v,i)=>`<rect x="${10+i*10.5}" y="${110-v*0.6}" width="8" height="${v*0.6}" rx="2" fill="${v>=80?C.ecoute:C.orange}"/>`).join("")}${[0,1,2].map(i=>`<circle cx="${38+i*12}" cy="128" r="5" fill="${i<2?C.ecoute:C.sable}"/>`).join("")}${label(50,150,"2 sur 3",12,C.foret,"middle")}<rect x="10" y="168" width="80" height="20" rx="8" fill="${C.foret}"/>${label(50,182,"Encore un essai",9,C.creme,"middle")}`;
+const appGel=`<rect width="100" height="200" fill="${C.givre}"/>${label(50,28,"Série gelée",11,C.glacier,"middle")}<path d="M50 50 l0 40 M32 60 l36 20 M68 60 l-36 20" stroke="${C.glacier}" stroke-width="5" stroke-linecap="round"/>${label(50,120,"Ta série est au chaud",8.5,C.foret,"middle",700)}${label(50,134,"Arrivée : 13 mars",8.5,C.mousse,"middle",700)}<rect x="10" y="166" width="80" height="20" rx="8" fill="${C.foret}"/>${label(50,180,"5 min pour dégeler",8,C.creme,"middle")}`;
+const appProgres=`<rect width="100" height="200" fill="${C.creme}"/>${label(8,22,"Mes progrès",11)}${[0,1,2,3,4,5].map(i=>`<rect x="${8+i*14.5}" y="40" width="12" height="14" rx="3" fill="${i<4?C.orange:C.sable}"/>`).join("")}${label(8,76,"Tempo",8,C.mousse,"start",600)}<polyline points="8,120 24,114 40,110 56,100 72,94 92,84" fill="none" stroke="${C.ecoute}" stroke-width="3"/>${label(92,78,"72",9,C.ecoute,"end")}${label(8,150,"Série",8,C.mousse,"start",600)}${label(8,172,"23 jours",14,C.foret)}`;
+const appFete=`<rect width="100" height="200" fill="${C.foret}"/>${label(50,30,"Morceau terminé !",10,C.creme,"middle")}<svg x="10" y="40" width="80" height="80" viewBox="0 0 200 200">${tic(0,0,200,33,"fete")}</svg>${label(50,140,"Gymnopédie n°1",10,C.soleil,"middle")}<rect x="10" y="160" width="80" height="20" rx="8" fill="${C.creme}"/>${label(50,174,"Écouter ma version",8,C.foret,"middle")}`;
+const appNotif=`<rect width="100" height="200" fill="#2b2b2b"/>${label(50,40,"19:30",22,"#fff","middle",600)}<rect x="6" y="70" width="88" height="34" rx="8" fill="#ffffffdd"/><svg x="10" y="74" width="20" height="20" viewBox="0 0 200 200">${tic(0,0,200)}</svg>${label(34,84,"Tic",8,C.foret,"start")}${label(34,96,"10 min de Gymnopédie ?",6.5,C.foret,"start",600)}`;
+
+const S=[
+ {act:1,n:1,tc:"0:00 – 0:02",type:"anim",title:"Ouverture",
+  draw:()=>`<rect width="320" height="180" fill="${C.foret}"/>${tic(118,32,84,10)}${logo(160,150,40,C.creme)}`,
+  image:"L'intro animée existante : le point tombe et le balancier du « i » bascule.",action:"Rien d'autre, 2 s.",texte:"",voix:"",son:"Le « tic » du métronome sur l'impact du point."},
+ {act:1,n:2,tc:"0:02 – 0:08",type:"film",title:"Le piano qui prend la poussière",
+  draw:()=>`<rect width="320" height="180" fill="${C.soir}"/><circle cx="270" cy="34" r="40" fill="${C.soleil}" opacity=".18"/>${piano(90,40,140)}<rect x="104" y="30" width="40" height="12" fill="${C.sable}" transform="rotate(-6 124 36)"/><rect x="150" y="32" width="56" height="10" fill="${C.lav}"/>${person(46,108,1,C.glacier)}${phone(22,118,16,28,`<rect width="100" height="200" fill="#222"/>`)}${sub("« Ce morceau-là, un jour je le jouerai. »")}`,
+  image:"Plan large, soir, lumière de lampe. Un piano droit couvert de courrier et d'un plaid. Camille l'écoute sur son téléphone, assise à côté.",action:"Camille regarde le piano, hésite, enlève le plaid.",texte:"",voix:`<span class="who">Camille (off)</span> « Ce morceau-là, je me suis toujours dit qu'un jour je le jouerai. »`,son:"La Gymnopédie, enregistrement maison, faible, comme sortant du téléphone."},
+ {act:1,n:3,tc:"0:08 – 0:14",type:"film",title:"Les mains qui s'arrêtent",
+  draw:()=>`<rect width="320" height="180" fill="${C.soir}"/>${keys(0,92,320,88,16,[6])}${hand(120,96,1.6)}${hand(214,98,1.6,true)}${phone(250,10,44,78,`<rect width="100" height="200" fill="#fff"/>${Array.from({length:14},(_,i)=>`<line x1="6" y1="${16+i*13}" x2="94" y2="${16+i*13}" stroke="#333" stroke-width="1"/>${Array.from({length:7},(_,j)=>`<circle cx="${12+j*12}" cy="${14+i*13+(j%3)*3}" r="2.6" fill="#111"/>`).join("")}`).join("")}`)}${label(20,30,"9 sur 10",26,C.soleil)}${label(20,48,"abandonnent un instrument",12,C.creme,"start",700)}${label(20,62,"dans les 60 jours",12,C.creme,"start",700)}`,
+  image:"Gros plan au-dessus du clavier. Une partition trop dense sur le téléphone posé sur le pupitre.",action:"Deux mesures hésitantes, une fausse note, les mains se figent puis se retirent.",texte:"« 9 personnes sur 10 abandonnent un instrument dans les 60 jours » (source du chiffre à citer en petit).",voix:"",son:"La fausse note, puis silence. Le « tic » s'arrête."},
+ {act:1,n:4,tc:"0:14 – 0:19",type:"film",title:"Malik décroche",
+  draw:()=>`<rect width="320" height="180" fill="${C.sable}"/><rect x="0" y="130" width="320" height="50" fill="${C.bois2}" opacity=".4"/>${guitar(232,118,0.85,8)}${person(110,82,1.1,C.terre,"#1b1b1b")}${phone(150,80,26,48,`<rect width="100" height="200" fill="#fff"/>${label(50,40,"Gamme 14/40",12,"#333","middle",700)}${[0,1,2,3].map(i=>`<rect x="10" y="${60+i*30}" width="80" height="20" fill="#e3e3e3"/>`).join("")}`)}${label(20,30,"Des exercices.",16,C.foret)}${label(20,48,"Jamais mon morceau.",16,C.terre)}`,
+  image:"Malik, débutant guitare, sur son canapé, enchaîne les gammes dans une app.",action:"Il soupire, ferme l'app, pose la guitare contre le mur.",texte:"« Des exercices. Jamais mon morceau. »",voix:"",son:"Le jingle d'une app de gammes, qu'il coupe."},
+ {act:1,n:5,tc:"0:19 – 0:24",type:"anim",title:"Ce que dit le terrain, 1",
+  draw:()=>quoteCard(1,"musicienne qui reprend le piano"),
+  image:"Fond crème, grande guillemet orange, la citation s'écrit mot à mot.",action:"Tic, petit, tend l'oreille dans le coin.",texte:`<span class="slot">[CITATION 1]</span> sur l'envie qui naît d'un morceau précis (hypothèse 1), avec le profil seul.`,voix:"La citation lue par une autre voix que celle de la personne interrogée.",son:"Trois notes de piano en suspens."},
+ {act:2,n:6,tc:"0:24 – 0:30",type:"mix",title:"Le métronome se réveille",
+  draw:()=>`<rect width="320" height="180" fill="${C.creme}"/><rect x="0" y="0" width="140" height="180" fill="${C.soir}"/><path d="M50 150 L68 50 L86 50 L104 150Z" fill="#6b4a2f"/><line x1="77" y1="140" x2="77" y2="60" stroke="#ddd" stroke-width="3"/>${label(140,92,"›",28,C.orange,"middle")}${tic(170,30,110,-10,"content")}${bubble(160,10,150,"Salut ! Quel morceau rêves-tu de jouer ?")}`,
+  image:"Gros plan sur un vrai métronome mécanique posé sur le piano, qui se change en fondu en Tic animé.",action:"Le balancier bat deux fois, Tic ouvre les yeux et salue.",texte:"Bulle de Tic.",voix:`<span class="who">Tic</span> <span class="tic-line">Salut ! Quel morceau rêves-tu de jouer ?</span>`,son:"Le « tic » reprend, au tempo de la Gymnopédie (env. 72)."},
+ {act:2,n:7,tc:"0:30 – 0:37",type:"maq",title:"Choisir son morceau",
+  draw:()=>`<rect width="320" height="180" fill="${C.peche}"/>${phone(128,8,64,164,appMorceaux)}${hand(196,140,1.1,true)}${tic(24,92,80,30)}${bubble(16,62,110,"Celui-là ? Bon choix.")}`,
+  image:"Capture de l'écran Choisis ton morceau, tenue en main (incrustation sur un plan de pouce).",action:"Le pouce de Camille touche « Gymnopédie n°1 ».",texte:"Bulle de Tic.",voix:`<span class="who">Tic</span> <span class="tic-line">Celui-là ? Bon choix. On va le découper en parties.</span>`,son:"Le thème de la Gymnopédie reprend, net."},
+ {act:2,n:8,tc:"0:37 – 0:45",type:"maq",title:"Tu choisis le temps, Tic calcule la date",
+  draw:()=>`<rect width="320" height="180" fill="${C.creme}"/>${phone(196,8,64,164,appRythme)}${label(20,50,"Tu choisis",18,C.foret)}${label(20,70,"la durée.",18,C.foret)}${label(20,96,"Tic calcule",18,C.terre)}${label(20,116,"la date.",18,C.terre)}${tic(120,104,64,25)}`,
+  image:"Capture de l'écran Ton rythme et ta date.",action:"Le curseur passe de 5 à 10 min, 4 jours sont cochés, la date se recalcule en direct. C'est le différenciant de Tic.",texte:"« Tu choisis la durée. Tic calcule la date. »",voix:`<span class="who">Tic</span> <span class="tic-line">Dix minutes, quatre jours par semaine ? On arrive vers le 12 mars.</span>`,son:"Un petit clic à chaque cran du curseur."},
+ {act:2,n:9,tc:"0:45 – 0:51",type:"maq",title:"Le morceau en parties",
+  draw:()=>`<rect width="320" height="180" fill="${C.sauge}"/>${phone(40,8,64,164,appParcours)}${tic(150,60,96,30)}${bubble(130,26,176,"On commence par le passage que tu préfères.")}`,
+  image:"Capture de l'écran Ton parcours.",action:"Les étapes se déroulent de haut en bas : refrain d'abord, la compétence « main gauche » placée juste avant la partie qui en a besoin.",texte:"Bulle de Tic.",voix:`<span class="who">Tic</span> <span class="tic-line">On commence par le passage que tu préfères.</span>`,son:"Musique."},
+ {act:2,n:10,tc:"0:51 – 0:59",type:"mix",title:"Le micro suffit",
+  draw:()=>`<rect width="320" height="180" fill="${C.creme}"/>${piano(80,10,160)}${phone(142,14,36,70,appCalib)}${tic(250,96,64,0,"oreille")}${label(20,166,"Le micro suffit. Clavier MIDI en option.",13,C.foret)}`,
+  image:"Le téléphone posé sur le pupitre du piano acoustique de Camille. L'écran de calibration est incrusté sur l'écran du téléphone.",action:"Camille joue un do. Les ondes passent au vert. Tic tend l'oreille puis sourit.",texte:"« Pas de câble : le micro suffit. Clavier MIDI en option. »",voix:`<span class="who">Tic</span> <span class="tic-line">Joue-moi un do… Parfait, je t'entends.</span>`,son:"Le do, net, puis la musique repart."},
+ {act:2,n:11,tc:"0:59 – 1:09",type:"mix",title:"Première partie, tempo lent",
+  draw:()=>`<rect width="320" height="180" fill="${C.soir}"/>${keys(0,110,200,70,10,[3,5])}${hand(70,114,1.5)}<rect x="200" y="0" width="120" height="180" fill="${C.aub}"/>${phone(222,8,76,164,appJeuPiano,C.aub)}${tic(150,20,48,-28)}${label(20,30,"Main droite seule, 60 %",12,C.creme,"start",700)}`,
+  image:"Écran partagé : à gauche, les mains de Camille filmées au-dessus du clavier ; à droite, le mode jeu piano (notes qui descendent). Puis l'écran Retour sur un essai.",action:"Main droite seule, tempo réduit, puis deux mains. Tic ne parle pas pendant le jeu : son balancier bat la mesure. À la fin, 2 essais validés sur 3.",texte:"« Main droite seule · tempo 60 % » puis « 2 sur 3 ».",voix:`<span class="who">Tic</span>, après le jeu : <span class="tic-line">Deux sur trois ! Encore un essai ?</span>`,son:"Le jeu réel de Camille, au ralenti, sans musique ajoutée."},
+ {act:2,n:12,tc:"1:09 – 1:16",type:"mix",title:"Et à la guitare",
+  draw:()=>`<rect width="320" height="180" fill="${C.sable}"/>${guitar(90,130,0.95,-60)}${hand(56,92,1.1)}${person(110,40,0.8,C.terre,"#1b1b1b")}<rect x="200" y="0" width="120" height="180" fill="${C.aub}"/>${phone(222,8,76,164,appTab,C.aub)}${tic(150,104,60,-20)}${bubble(130,74,128,"Ralentis, on découpe plus fin.")}`,
+  image:"Malik a repris sa guitare. Écran partagé avec la tablature qui défile et l'accord en cours.",action:"Il bute sur un passage. Tic ralentit le tempo et coupe la partie en deux ; Malik la passe.",texte:"« La Romance · tablature »",voix:`<span class="who">Tic</span> <span class="tic-line">Ça coince ? On ralentit et on découpe plus fin.</span>`,son:"La guitare de Malik."},
+ {act:2,n:13,tc:"1:16 – 1:24",type:"mix",title:"Un jour après l'autre",
+  draw:()=>`<rect width="320" height="180" fill="${C.creme}"/>${phone(14,14,56,152,appNotif)}${phone(92,14,56,152,appGel,C.givre)}${phone(170,14,56,152,appProgres)}${label(276,60,"Jour 1",14,C.mousse,"middle")}${label(276,92,"Jour 9",14,C.mousse,"middle")}${label(276,124,"Jour 23",18,C.terre,"middle")}`,
+  image:"Montage rapide : la notification du rappel, une tasse posée sur le piano, l'écran Série gelée, l'écran Mes progrès dont les segments se remplissent.",action:"Les jours défilent. Un jour manqué : la série gèle au lieu de se perdre, la date glisse d'un jour.",texte:"Compteur « Jour 1… Jour 9… Jour 23 ».",voix:`<span class="who">Tic</span>, sur la série gelée : <span class="tic-line">Pas grave. On décale d'un jour.</span>`,son:"Le « tic » marque chaque coupe."},
+ {act:3,n:14,tc:"1:24 – 1:34",type:"mix",title:"Camille joue son morceau",
+  draw:()=>`<rect width="320" height="180" fill="${C.peche}"/><circle cx="270" cy="40" r="60" fill="${C.soleil}" opacity=".35"/>${piano(84,40,140)}<circle cx="110" cy="34" r="8" fill="${C.ecoute}"/><rect x="104" y="20" width="12" height="18" fill="${C.ecoute}"/>${person(44,104,1,C.glacier)}${phone(240,60,52,110,appFete,C.foret)}`,
+  image:"Le même salon qu'au plan 2, en lumière de fin d'après-midi : le piano est dégagé, une plante dessus. Plan large, puis les mains. À la fin, l'écran Morceau terminé.",action:"Camille joue la Gymnopédie en entier, sourit à la dernière note. Tic fait la fête à l'écran.",texte:"« Jour 1 / aujourd'hui » en bas, le temps d'un fondu entre l'enregistrement hésitant du plan 3 et celui-ci.",voix:`<span class="who">Tic</span>, après la dernière note : <span class="tic-line">Tu l'as fait. C'est ta version.</span>`,son:"Le jeu réel de Camille, sans voix par-dessus."},
+ {act:3,n:15,tc:"1:34 – 1:42",type:"anim",title:"Ce que dit le terrain, 2",
+  draw:()=>`<rect width="320" height="180" fill="${C.creme}"/><rect x="20" y="24" width="130" height="64" rx="12" fill="#fff" stroke="${C.sable}"/>${label(85,52,"[CHIFFRE]",14,C.foret,"middle")}<rect x="40" y="62" width="90" height="6" rx="3" fill="${C.sable}"/><rect x="170" y="24" width="130" height="64" rx="12" fill="#fff" stroke="${C.sable}"/><rect x="180" y="40" width="110" height="16" rx="4" fill="${C.soleil}"/>${label(235,52,"[CITATION 2]",11,C.foret,"middle")}<rect x="20" y="100" width="200" height="56" rx="12" fill="#fff" stroke="${C.sable}"/><rect x="30" y="116" width="120" height="16" rx="4" fill="${C.soleil}"/>${label(90,128,"[CITATION 3]",11,C.foret,"middle")}${tic(236,96,70,33)}`,
+  image:"Trois cartes qui apparaissent l'une après l'autre sur fond crème.",action:"Un chiffre du terrain, puis deux citations courtes.",texte:`<span class="slot">[CHIFFRE]</span> par ex. « X personnes interrogées sur Y ont cité un morceau précis ». <span class="slot">[CITATION 2]</span> sur la motivation qui s'effrite. <span class="slot">[CITATION 3]</span> sur ce qui les ferait rester (un objectif, une date, voir ses progrès).`,voix:"Lues par une autre voix ; pas de prénom, profil seul.",son:"Le thème de la Gymnopédie, plus doux."},
+ {act:4,n:16,tc:"1:42 – 1:53",type:"anim",title:"Il nous manque cinq partenaires",
+  draw:()=>`<rect width="320" height="180" fill="${C.foret}"/>${label(20,34,"On cherche 5 partenaires",17,C.creme)}${["Mobile","Audio et IA","Back-end","UI / UX","DevOps"].map((t,i)=>`<rect x="${20+i*56}" y="54" width="50" height="50" rx="10" fill="${i===1?C.orange:C.creme}"/>${label(45+i*56,84,t,7.5,C.foret,"middle")}`).join("")}${tic(228,104,72,33)}${bubble(70,128,154,"Il me faut une équipe. Et si c'était toi ?",C.creme)}`,
+  image:"Fond forêt. Cinq cartes de postes : développement mobile, traitement audio et IA, back-end et données, UI/UX, DevOps.",action:"Les cartes tombent une à une au rythme du balancier. Tic se tourne vers la caméra.",texte:"« On cherche 5 partenaires des masters Epitech » + les cinq postes.",voix:`<span class="who">Tic</span> <span class="tic-line">Il me faut une équipe. Et si c'était toi ?</span>`,son:"Le thème repart, plus rythmé, sur un « tic » à chaque carte."},
+ {act:4,n:17,tc:"1:53 – 1:59",type:"anim",title:"Signature",
+  draw:()=>`<rect width="320" height="180" fill="${C.foret}"/>${tic(128,20,64,33)}${logo(160,112,40,C.creme)}${label(160,136,"Ton morceau, un jour après l'autre.",13,C.soleil,"middle",700)}${label(160,160,"[lien vitrine] · Epitech Innovation",10,C.sauge,"middle",600)}`,
+  image:"Le logo, la signature, le lien de la vitrine GitHub Pages et la mention de la plateforme Innovation.",action:"Tic remet son balancier au repos.",texte:"« Ton morceau, un jour après l'autre. » + [lien vitrine].",voix:"",son:"Dernier accord de la Gymnopédie, puis un seul « tic »."},
+];
+const ACTS={1:["La friction","0:00 – 0:24","Montrer ce que vivent les gens : l'envie d'un morceau précis, puis l'abandon."],2:["Tic, le prof","0:24 – 1:24","Tic guide : un morceau, des parties, une durée choisie, une date, l'écoute par micro."],3:["La preuve","1:24 – 1:42","Le morceau joué en entier, puis la voix du terrain."],4:["Rejoins-nous","1:42 – 1:59","Donner envie de rejoindre l'équipe."]};
+const TYPES={film:["Filmé","t-film"],anim:["Animé","t-anim"],maq:["Maquette","t-maq"],mix:["Mixte","t-mix"]};
+const root=document.getElementById("shots");let html="";
+for(const a of [1,2,3,4]){
+  html+=`<section class="act"><div class="act-head"><p class="eyebrow">Acte ${a}</p><h2>${ACTS[a][0]}</h2><p>${ACTS[a][1]} · ${ACTS[a][2]}</p></div>`;
+  for(const s of S.filter(x=>x.act===a)){
+    const t=TYPES[s.type];
+    const rows=[["Image",s.image],["Action",s.action],["Texte à l'écran",s.texte],["Voix",s.voix],["Son",s.son]].filter(r=>r[1]);
+    html+=`<article class="shot" id="plan-${s.n}"><div class="frame"><svg viewBox="0 0 320 180" role="img" aria-label="Vignette du plan ${s.n} : ${s.title}">${s.draw()}</svg><div class="tc"><span>${s.tc}</span><span class="tag ${t[1]}">${t[0]}</span></div></div>
+    <div class="info"><h3><span class="n">${String(s.n).padStart(2,"0")}</span>${s.title}</h3><dl>${rows.map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join("")}</dl></div></article>`;
+  }
+  html+=`</section>`;
+}
+root.innerHTML=html;
+document.querySelector(".hero-tic").innerHTML=tic(0,0,200,33);
+</script>

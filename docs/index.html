@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-START -->
+<title>Tic, ton morceau un jour après l'autre</title>
+<meta name="description" content="Tic, l'app qui t'emmène jusqu'au morceau que tu veux jouer, au piano ou à la guitare. Projet de fin d'études Epitech : le problème, le terrain, la vision et l'équipe qu'on recrute.">
+<meta property="og:title" content="Tic, l'app qui t'emmène jusqu'au morceau que tu veux jouer">
+<meta property="og:description" content="Piano ou guitare, séances à ta durée, un morceau découpé en parties jusqu'à ta date d'arrivée. On cherche 5 partenaires dans les masters Epitech.">
+<meta property="og:image" content="img/banner.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Mise en page : la page est un morceau découpé en six parties ; la barre de segments du haut avance comme la barre de progression de l'app. */
+:root{
+  --bg:#FFF3E0;          /* crème */
+  --surface:#FFFFFF;
+  --fg:#1F4D3A;          /* forêt */
+  --muted:#46655A;       /* mousse */
+  --accent:#FF8A5B;      /* orange Tic */
+  --accent-text:#A63E17; /* terre cuite */
+  --highlight:#FFE0CF;   /* pêche */
+  --todo:#F3DFC2;        /* sable : à venir */
+  --todo-line:#D9BF98;
+  --ok:#DCEBE3;          /* sauge */
+  --shadow:#133326;      /* forêt nuit */
+  --line:#F0DCC0;
+  --band:#1F4D3A;
+  --on-band:#FFF3E0;
+  --on-band-muted:#CFE0D6;
+  --tic-body:#FF8A5B; --tic-base:#E5683A; --tic-ink:#1F4D3A; --tic-arm:#FFF3E0;
+  --display:'Baloo 2', 'Trebuchet MS', system-ui, sans-serif;
+  --body:'Nunito', 'Segoe UI', system-ui, sans-serif;
+  --step--1:.875rem; --step-0:1.0625rem; --step-1:1.25rem; --step-2:1.6rem; --step-3:2.2rem; --step-4:clamp(2.4rem, 1.6rem + 3.4vw, 3.9rem);
+  --radius-card:20px; --radius-btn:20px;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11271E; --surface:#183528; --fg:#FFF3E0; --muted:#C3D6CB; --accent:#FF8A5B; --accent-text:#FFB08F;
+    --highlight:#3B2A21; --todo:#21392E; --todo-line:#46655A; --ok:#1E4334; --shadow:#07130E; --line:#26453A;
+    --band:#0B1C15; --on-band:#FFF3E0; --on-band-muted:#B9CEC2;
+    --tic-body:#FF8A5B; --tic-base:#E5683A; --tic-ink:#1F4D3A; --tic-arm:#FFF3E0;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11271E; --surface:#183528; --fg:#FFF3E0; --muted:#C3D6CB; --accent:#FF8A5B; --accent-text:#FFB08F;
+  --highlight:#3B2A21; --todo:#21392E; --todo-line:#46655A; --ok:#1E4334; --shadow:#07130E; --line:#26453A;
+  --band:#0B1C15; --on-band:#FFF3E0; --on-band-muted:#B9CEC2;
+  --tic-body:#FF8A5B; --tic-base:#E5683A; --tic-ink:#1F4D3A; --tic-arm:#FFF3E0;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;margin:0;text-wrap:balance}
+h2{font-size:var(--step-3)}
+h3{font-size:var(--step-1);line-height:1.2}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.prose{max-width:62ch}
+.muted{color:var(--muted)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--surface);padding:8px 14px;border-radius:10px;z-index:50}
+.skip:focus{left:16px}
+
+/* Logotype « tic » : barre du i droite et centrée entre le t et le c (version statique) */
+.wordmark{display:inline-flex;align-items:flex-end;font-family:var(--display);font-weight:800;line-height:.8;color:var(--fg);text-decoration:none}
+.wordmark svg{width:.337em;height:.942em;margin:0 -.017em .037em .013em;flex:none}
+.wordmark .bar{stroke:var(--accent)}
+.wordmark .dot{fill:currentColor}
+
+/* En-tête : le morceau en six parties */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:24px;padding-block:12px}
+.top .wordmark{font-size:34px;padding-bottom:4px}
+.parts{flex:1;min-width:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;list-style:none;margin:0;padding:0}
+.parts a{display:flex;flex-direction:column;gap:6px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:var(--step--1);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-block:4px}
+.parts a::before{content:"";height:8px;border-radius:4px;background:var(--todo);transition:background .3s}
+.parts a.done::before{background:var(--accent)}
+.parts a.now{color:var(--fg)}
+.parts a.now::before{background:var(--accent)}
+.parts a:hover{color:var(--fg)}
+.now-label{display:none;font-family:var(--display);font-weight:700;font-size:var(--step--1);color:var(--muted);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border-radius:var(--radius-btn);font-family:var(--display);font-weight:800;font-size:1.05rem;text-decoration:none;border:0;cursor:pointer;transition:transform .12s, box-shadow .12s}
+.btn-main{background:var(--fg);color:var(--bg);box-shadow:0 4px 0 var(--shadow)}
+.btn-main:hover{transform:translateY(-1px);box-shadow:0 5px 0 var(--shadow)}
+.btn-main:active{transform:translateY(3px);box-shadow:0 1px 0 var(--shadow)}
+.btn-ghost{background:var(--surface);color:var(--fg);box-shadow:0 3px 0 var(--line)}
+.top .btn{min-height:44px;padding:8px 16px;font-size:.98rem}
+
+/* Ouverture */
+.hero{background:var(--band);color:var(--on-band)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:center;padding-block:64px 72px}
+.kicker{font-family:var(--display);font-weight:700;font-size:var(--step--1);letter-spacing:.06em;text-transform:uppercase;color:var(--on-band-muted)}
+.hero h1{font-size:var(--step-4);margin-block:14px 18px;color:var(--on-band)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{font-size:var(--step-1);line-height:1.5;color:var(--on-band-muted);max-width:40ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;list-style:none;padding:0}
+.chips li{font-family:var(--display);font-weight:700;font-size:.95rem;padding:6px 14px;border-radius:999px;background:rgba(255,243,224,.1);border:1px solid rgba(255,243,224,.22)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .btn-main{background:var(--accent);color:#1F4D3A;box-shadow:0 4px 0 #A63E17}
+.hero .btn-main:hover{box-shadow:0 5px 0 #A63E17}
+.hero .btn-ghost{background:transparent;color:var(--on-band);box-shadow:inset 0 0 0 2px rgba(255,243,224,.4)}
+.stage{display:flex;flex-direction:column;align-items:center;gap:10px}
+.stage svg{width:min(320px,100%);height:auto}
+.tempo{font-family:var(--display);font-weight:700;color:var(--on-band-muted);font-size:var(--step--1);display:flex;gap:8px;align-items:center}
+.tempo b{color:var(--on-band);font-size:1.1rem}
+.tic-body{fill:var(--tic-body)} .tic-base{fill:var(--tic-base)} .tic-ink{fill:var(--tic-ink)} .tic-shine{fill:#FFFFFF}
+.tic-arm{stroke:var(--tic-arm)}
+/* Le balancier bat comme un vrai métronome : d'un bout à l'autre, ralenti aux extrémités, 60 bpm */
+.pendulum{transform-box:view-box;transform-origin:100px 148px;transform:rotate(33deg);animation:beat 1s cubic-bezier(.37,0,.63,1) infinite alternate}
+@keyframes beat{from{transform:rotate(33deg)}to{transform:rotate(-33deg)}}
+.badge-phase{margin-top:26px;font-size:var(--step--1);color:var(--on-band-muted);max-width:52ch}
+
+/* Sections */
+section.part{padding-block:88px 24px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:var(--step--1);color:var(--accent-text);letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+.eyebrow .segs{display:inline-grid;grid-template-columns:repeat(6,14px);gap:3px}
+.eyebrow .segs i{height:6px;border-radius:3px;background:var(--todo)}
+.eyebrow .segs i.on{background:var(--accent)}
+.section-head{display:grid;gap:16px;margin-bottom:40px}
+.section-head .prose{font-size:var(--step-1);line-height:1.5;color:var(--muted)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{background:var(--surface);border-radius:var(--radius-card);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card p{color:var(--muted)}
+.card .stat{font-family:var(--display);font-weight:800;font-size:var(--step-3);line-height:1;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.source{font-size:var(--step--1);color:var(--muted);margin-top:auto;padding-top:6px}
+.source a{color:var(--muted)}
+
+/* Terrain */
+.field{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:start}
+.tally{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tally .card{padding:18px 20px;gap:2px}
+.tally .num{font-family:var(--display);font-weight:800;font-size:var(--step-3);line-height:1.05;font-variant-numeric:tabular-nums}
+.tally .num small{font-size:var(--step-1);color:var(--muted)}
+.tally .lbl{font-size:var(--step--1);color:var(--muted)}
+.method{margin-top:16px;font-size:.98rem}
+.method ul{margin:10px 0 0;padding-left:1.1em;display:grid;gap:6px}
+.hyps{display:grid;gap:14px}
+.hyp{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;background:var(--surface);border-radius:var(--radius-card);padding:20px 22px}
+.hyp .tag{font-family:var(--display);font-weight:800;font-size:.95rem;min-width:46px;height:46px;border-radius:23px;display:grid;place-items:center;background:var(--highlight);color:var(--accent-text)}
+.hyp h3{font-size:1.15rem}
+.hyp .how{font-size:.96rem;color:var(--muted);margin-top:4px}
+.result{margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 14px;border-radius:14px;border:2px dashed var(--todo-line);background:var(--todo);font-size:.95rem}
+.pill{font-family:var(--display);font-weight:800;font-size:.82rem;padding:3px 10px;border-radius:999px;background:var(--surface);color:var(--fg);white-space:nowrap}
+.hyp.risky{background:var(--highlight)}
+.hyp.risky .tag{background:var(--accent);color:#1F4D3A}
+.hyp.risky .result{background:var(--surface)}
+.quotes{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.quote{margin:0;padding:24px;border-radius:var(--radius-card);border:2px dashed var(--todo-line);display:flex;flex-direction:column;gap:14px;min-width:0}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:700;font-size:1.25rem;line-height:1.3;color:var(--muted)}
+.quote figcaption{font-size:var(--step--1);color:var(--muted)}
+.privacy{margin-top:18px;display:flex;gap:10px;align-items:flex-start;font-size:.95rem;color:var(--muted);max-width:75ch}
+.privacy svg{flex:none;margin-top:3px}
+
+/* Pourquoi encore une app */
+.why{margin-top:72px;background:var(--surface);border-radius:28px;padding:36px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:36px}
+.why ol{margin:0;padding:0;list-style:none;display:grid;gap:18px}
+.why li{display:grid;gap:4px}
+.why li strong{font-family:var(--display);font-size:1.15rem;line-height:1.25}
+.why li span{color:var(--muted)}
+
+/* Vision */
+.path{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.step{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;padding-bottom:26px;position:relative}
+.step::before{content:"";position:absolute;left:27px;top:52px;bottom:4px;width:2px;background:repeating-linear-gradient(to bottom,var(--todo-line) 0 6px,transparent 6px 12px)}
+.step:last-child::before{display:none}
+.step .n{width:52px;height:52px;border-radius:26px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.3rem;background:var(--surface);border:2px solid var(--fg)}
+.step:last-child .n{background:var(--accent);border-color:var(--accent);color:#1F4D3A}
+.step h3{margin-top:10px}
+.step p{color:var(--muted);margin-top:4px;max-width:58ch}
+.vision{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:start}
+.promise{background:var(--band);color:var(--on-band);border-radius:28px;padding:30px;display:grid;gap:16px;position:sticky;top:100px}
+.promise h3{font-size:var(--step-2)}
+.promise ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.promise li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;color:var(--on-band-muted)}
+.promise li b{color:var(--on-band)}
+.promise .tick{color:var(--accent);font-weight:800}
+
+/* Écrans */
+.screens{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 22px;margin-inline:-4px;scrollbar-width:thin}
+.screen{flex:0 0 auto;width:236px;scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:12px}
+.phone{border-radius:34px;padding:7px;background:#1B1B1B;box-shadow:0 10px 30px rgba(19,51,38,.18)}
+.phone img{border-radius:28px;width:100%;height:auto;aspect-ratio:390/844}
+.screen figcaption{display:grid;gap:2px;font-size:.95rem;color:var(--muted)}
+.screen figcaption b{font-family:var(--display);font-size:1.05rem;color:var(--fg)}
+.note{display:inline-flex;gap:8px;align-items:center;font-size:.95rem;padding:8px 14px;border-radius:999px;background:var(--surface);color:var(--muted);width:fit-content;max-width:100%}
+
+/* Teaser */
+.teaser{position:relative;border-radius:28px;overflow:hidden;background:var(--band) repeating-linear-gradient(to bottom,transparent 0 46px,rgba(255,243,224,.08) 46px 48px);aspect-ratio:16/9;max-width:100%;display:grid}
+.teaser img{width:100%;height:100%;object-fit:cover;grid-area:1/1;opacity:.35}
+.teaser .over{grid-area:1/1;display:grid;place-items:center;align-content:center;gap:14px;padding:24px;text-align:center;color:var(--on-band)}
+.teaser .play{width:76px;height:76px;border-radius:38px;background:var(--accent);display:grid;place-items:center;box-shadow:0 5px 0 #A63E17}
+.teaser .over strong{font-family:var(--display);font-size:var(--step-2);line-height:1.1}
+.teaser .over span{color:var(--on-band-muted);max-width:46ch}
+.teaser video{width:100%;height:100%;grid-area:1/1;background:#000}
+.acts{display:grid;grid-template-columns:24fr 60fr 18fr 17fr;gap:6px;margin-top:16px;font-size:var(--step--1);color:var(--muted)}
+.acts div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.acts div::before{content:"";height:8px;border-radius:4px;background:var(--todo)}
+.acts div:nth-child(2)::before{background:var(--accent)}
+.acts b{font-family:var(--display);color:var(--fg)}
+
+/* Équipe */
+.founders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-bottom:48px}
+.founder{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:center;padding:20px;border-radius:var(--radius-card);border:2px dashed var(--todo-line)}
+.avatar{width:64px;height:64px;border-radius:32px;background:var(--todo);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.4rem;color:var(--muted)}
+.founder b{font-family:var(--display);font-size:1.15rem;display:block}
+.founder span{font-size:.95rem;color:var(--muted)}
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.role{background:var(--surface);border-radius:var(--radius-card);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.role .lot{font-family:var(--display);font-weight:700;font-size:var(--step--1);color:var(--accent-text);text-transform:uppercase;letter-spacing:.05em}
+.role p{color:var(--muted);font-size:.98rem}
+.role .need{font-size:.92rem;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.role .need b{font-family:var(--display);color:var(--fg)}
+.role.critical{background:var(--highlight)}
+.role.critical .need{border-color:var(--todo-line)}
+.flag{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:.8rem;padding:3px 10px;border-radius:999px;background:var(--accent);color:#1F4D3A}
+.join{grid-column:span 1;background:var(--band);color:var(--on-band);border-radius:var(--radius-card);padding:24px;display:flex;flex-direction:column;gap:12px}
+.join h3{font-size:var(--step-2)}
+.join p{color:var(--on-band-muted)}
+.join .btn{margin-top:auto;align-self:flex-start;background:var(--accent);color:#1F4D3A;box-shadow:0 4px 0 #A63E17}
+.timeline{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.timeline div{display:flex;flex-direction:column;gap:6px;font-size:.95rem;color:var(--muted);min-width:0}
+.timeline div::before{content:"";height:8px;border-radius:4px;background:var(--accent)}
+.timeline b{font-family:var(--display);color:var(--fg)}
+
+footer{margin-top:96px;background:var(--band);color:var(--on-band-muted)}
+.foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding-block:44px}
+footer .wordmark{font-size:56px;color:var(--on-band)}
+footer .wordmark .dot{fill:var(--on-band)}
+footer p{font-size:.95rem;max-width:62ch}
+footer .sig{font-family:var(--display);font-weight:700;font-size:var(--step-1);color:var(--on-band);margin-top:10px}
+
+@media (max-width:960px){
+  .parts a{font-size:0;gap:0}
+  .now-label{display:block}
+  .hero-in{grid-template-columns:minmax(0,1fr);padding-block:40px 56px}
+  .stage{order:-1}
+  .stage svg{width:200px}
+  .grid-3,.quotes,.roles{grid-template-columns:minmax(0,1fr)}
+  .field,.why,.vision{grid-template-columns:minmax(0,1fr)}
+  .promise{position:static}
+  .founders{grid-template-columns:minmax(0,1fr)}
+}
+@media (min-width:600px) and (max-width:960px){
+  .grid-3,.quotes,.roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .top-in{gap:14px}
+  .top .wordmark{font-size:28px}
+  .top .btn{display:none}
+  section.part{padding-block:64px 12px}
+  .why{padding:24px}
+  .acts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .timeline{grid-template-columns:minmax(0,1fr)}
+  .foot{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .pendulum{animation:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#probleme">Aller au contenu</a>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="wordmark" href="#haut" aria-label="tic, retour en haut">
+      <span aria-hidden="true">t</span><svg viewBox="0 0 54 150" aria-hidden="true"><line class="bar" x1="27" y1="128" x2="27" y2="63" stroke-width="18" stroke-linecap="round"/><circle class="dot" cx="27" cy="36" r="11"/></svg><span aria-hidden="true">c</span>
+    </a>
+    <nav aria-label="Les six parties de la page" style="flex:1;min-width:0;display:grid;gap:4px">
+      <ol class="parts" id="parts">
+        <li><a href="#probleme">Le problème</a></li>
+        <li><a href="#terrain">Le terrain</a></li>
+        <li><a href="#vision">La vision</a></li>
+        <li><a href="#ecrans">Les écrans</a></li>
+        <li><a href="#teaser">Le teaser</a></li>
+        <li><a href="#equipe">L'équipe</a></li>
+      </ol>
+      <span class="now-label" id="now-label" aria-hidden="true">Partie 1 sur 6 · Le problème</span>
+    </nav>
+    <a class="btn btn-main" href="#equipe">Rejoindre l'équipe</a>
+  </div>
+</header>
+
+<main id="haut">
+  <section class="hero" aria-labelledby="titre">
+    <div class="wrap hero-in">
+      <div>
+        <p class="kicker">Projet de fin d'études Epitech · Phase 1, idéation</p>
+        <h1 id="titre">L'app qui t'emmène jusqu'au <em>morceau</em> que tu veux jouer.</h1>
+        <p class="lead">Tu choisis ton morceau. Tic le découpe en parties, t'écoute jouer et te donne une date d'arrivée. Tu avances en séances courtes, à la durée que tu choisis.</p>
+        <ul class="chips" aria-label="En bref">
+          <li>Piano ou clavier</li>
+          <li>Guitare</li>
+          <li>Séances de 5 à 20 min</li>
+          <li>Écoute au micro, MIDI en option</li>
+        </ul>
+        <div class="ctas">
+          <a class="btn btn-main" href="#equipe">Voir les 5 postes ouverts</a>
+          <a class="btn btn-ghost" href="#terrain">Ce qu'on vérifie sur le terrain</a>
+        </div>
+        <p class="badge-phase">Tic n'existe pas encore en app. Cette page présente le problème qu'on étudie et l'équipe qu'on monte : aucune ligne de code produit n'est écrite en Phase 1.</p>
+      </div>
+      <div class="stage">
+        <svg viewBox="20 24 160 152" role="img" aria-label="Tic, le métronome, bat la mesure en souriant">
+          <path class="tic-body" d="M58 162 L84 42 Q 86 36 92 36 L108 36 Q 114 36 116 42 L142 162 Q 143 168 136 168 L64 168 Q 57 168 58 162 Z"/>
+          <rect class="tic-base" x="62" y="148" width="76" height="20" rx="6"/>
+          <circle class="tic-ink" cx="90" cy="95" r="7"/><circle class="tic-ink" cx="110" cy="95" r="7"/>
+          <circle class="tic-shine" cx="92.4" cy="92.6" r="2.6"/><circle class="tic-shine" cx="112.4" cy="92.6" r="2.6"/>
+          <path class="tic-ink" d="M87 110 Q 98 125 109 110 Z" stroke="#1F4D3A" stroke-width="3" stroke-linejoin="round"/>
+          <g class="pendulum"><line class="tic-arm" x1="100" y1="148" x2="100" y2="38" stroke-width="8" stroke-linecap="round"/></g>
+        </svg>
+        <p class="tempo"><b>60 bpm</b> Tic bat la mesure</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTIE 1 · LE PROBLÈME -->
+  <section class="part" id="probleme" aria-labelledby="t-probleme">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="segs" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span>Partie 1 sur 6 · Le problème</p>
+        <h2 id="t-probleme">On veut jouer un morceau. On finit par lâcher l'instrument.</h2>
+        <p class="prose">Beaucoup de gens se mettent au piano ou à la guitare pour un morceau précis : la musique d'un film, une chanson entendue mille fois, un air de famille. D'autres reprennent après des années, ou cherchent juste de quoi tenir sur la durée. Les outils actuels leur proposent un programme général, rarement le morceau qui les a fait venir.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <p class="stat">9 sur 10</p>
+          <h3>abandonnent dans l'année</h3>
+          <p>C'est la part des nouveaux guitaristes qui arrêtent dans les douze mois, selon Fender. Le morceau qui donnait envie reste loin, et on ne voit pas ses progrès.</p>
+          <p class="source">Source : Fender, 2019, chiffre donné en interview. À recouper sur le terrain.</p>
+        </article>
+        <article class="card">
+          <p class="stat">1 programme</p>
+          <h3>pour tout le monde</h3>
+          <p>Les apps enseignent des leçons dans le même ordre pour tous. Ton morceau arrive à la fin, s'il est au catalogue. L'objectif personnel et l'apprentissage restent séparés.</p>
+          <p class="source">Source : notre benchmark de 14 apps et alternatives, octobre 2026.</p>
+        </article>
+        <article class="card">
+          <p class="stat">110 à 180 €</p>
+          <h3>par an, souvent sans le savoir</h3>
+          <p>C'est le prix courant d'un abonnement. Les avis négatifs parlent moins de musique que de prélèvements après l'essai et de résiliations difficiles.</p>
+          <p class="source">Source : prix relevés sur l'App Store français le 22 octobre 2026.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTIE 2 · LE TERRAIN -->
+  <section class="part" id="terrain" aria-labelledby="t-terrain">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="segs" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span>Partie 2 sur 6 · Le terrain</p>
+        <h2 id="t-terrain">Avant d'écrire une ligne, on va voir les gens qui jouent.</h2>
+        <p class="prose">Du 26 octobre au 15 novembre 2026, on rencontre des débutants, des musiciens qui reprennent, des profs et des utilisateurs d'apps. On les écoute raconter ce qu'ils ont vraiment fait, sans leur présenter Tic. Le 15 novembre, on décide : on continue, ou on change de cap.</p>
+      </div>
+
+      <div class="field">
+        <div>
+          <!-- À REMPLIR après le 15 novembre : remplacer « — » par les chiffres réels. -->
+          <div class="tally">
+            <div class="card"><span class="num">— <small>/ 20</small></span><span class="lbl">entretiens menés</span></div>
+            <div class="card"><span class="num">— <small>/ 5</small></span><span class="lbl">observations de jeu</span></div>
+            <div class="card"><span class="num">4</span><span class="lbl">segments interrogés</span></div>
+            <div class="card"><span class="num">15 nov.</span><span class="lbl">décision : on continue ou on pivote</span></div>
+          </div>
+          <div class="method">
+            <p><b>Qui on rencontre</b></p>
+            <ul class="muted">
+              <li>Des débutants, au piano ou à la guitare.</li>
+              <li>Des gens qui reprennent, ou qui perdent la motivation.</li>
+              <li>Des profs de musique.</li>
+              <li>Des utilisateurs, actuels ou anciens, d'apps d'apprentissage.</li>
+            </ul>
+            <p style="margin-top:14px" class="muted">Méthode : entretiens sur le modèle du « Mom Test » (on parle de ce que la personne a fait, pas de ce qu'elle ferait) et observation de séances de jeu chez elle, sur son instrument.</p>
+          </div>
+        </div>
+
+        <div class="hyps">
+          <article class="hyp">
+            <span class="tag">H2</span>
+            <div>
+              <h3>L'envie de jouer naît d'un morceau précis.</h3>
+              <p class="how">On demande aux gens pourquoi ils ont commencé, ou recommencé, et quel morceau ils ont essayé en premier.</p>
+              <!-- À REMPLIR : remplacer « En test » par « Confirmée », « Nuancée » ou « Infirmée », et écrire le constat en une phrase avec le nombre d'entretiens. -->
+              <p class="result"><span class="pill">En test</span> Résultat publié après le 15 novembre.</p>
+            </div>
+          </article>
+          <article class="hyp">
+            <span class="tag">H3</span>
+            <div>
+              <h3>Ces morceaux sont, pour la plupart, protégés par le droit d'auteur.</h3>
+              <p class="how">On relève chaque morceau cité et son statut : domaine public, licence libre ou protégé.</p>
+              <p class="result"><span class="pill">En test</span> Résultat publié après le 15 novembre.</p>
+            </div>
+          </article>
+          <article class="hyp">
+            <span class="tag">H6</span>
+            <div>
+              <h3>L'écoute au micro doit marcher sur l'équipement réel.</h3>
+              <p class="how">On note l'instrument, le clavier (avec ou sans MIDI), la pièce où la personne joue et ce qu'elle a vécu avec les apps qui écoutent.</p>
+              <p class="result"><span class="pill">En test</span> Résultat publié après le 15 novembre.</p>
+            </div>
+          </article>
+          <article class="hyp risky">
+            <span class="tag">!</span>
+            <div>
+              <h3>Notre pari le plus risqué : un catalogue libre de droits suffit pour commencer et rester.</h3>
+              <p class="how">Au lancement, Tic ne proposera que des morceaux libres. On montre une liste de 20 de ces morceaux à chaque personne. Plus de la moitié intéressée : le plan tient. Moins d'un tiers : on revoit le catalogue ou on cherche un éditeur partenaire.</p>
+              <p class="result"><span class="pill">En test</span> Part des personnes intéressées : publiée après le 15 novembre.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- À REMPLIR : 3 citations anonymes, avec seulement le segment et l'instrument. Jamais de nom, de ville, d'âge précis ni de photo. -->
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote>Citation d'entretien à venir.</blockquote>
+          <figcaption>Segment · instrument</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>Citation d'entretien à venir.</blockquote>
+          <figcaption>Segment · instrument</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>Citation d'entretien à venir.</blockquote>
+          <figcaption>Segment · instrument</figcaption>
+        </figure>
+      </div>
+      <p class="privacy">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>Chaque personne rencontrée a donné son accord. Ici, elle reste anonyme : on publie un segment et un instrument, jamais un nom, un lieu ou une image.</span>
+      </p>
+
+      <div class="why">
+        <div>
+          <h3 style="font-size:var(--step-2)">Pourquoi une app de plus ?</h3>
+          <p class="muted" style="margin-top:10px">On a passé au crible 7 apps qui écoutent et enseignent (Simply Piano, Flowkey, Skoove, Yousician…) et 7 alternatives, des tutoriels vidéo au prof particulier.</p>
+        </div>
+        <ol>
+          <li><strong>Écouter au micro ne suffit pas à se distinguer.</strong><span>Presque toutes les apps le font déjà, avec le MIDI en option. Pour Tic, c'est le minimum.</span></li>
+          <li><strong>Les leaders vendent des morceaux connus, sous licence.</strong><span>Leurs catalogues dépendent d'accords avec les éditeurs, qui expirent. C'est notre plus gros risque, et on le teste en premier.</span></li>
+          <li><strong>Personne ne fait du morceau choisi le cursus lui-même.</strong><span>Un parcours construit à rebours depuis ton morceau, avec une date d'arrivée, au piano comme à la guitare : c'est la place que Tic veut prendre.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTIE 3 · LA VISION -->
+  <section class="part" id="vision" aria-labelledby="t-vision">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="segs" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>Partie 3 sur 6 · La vision</p>
+        <h2 id="t-vision">Ton morceau, un jour après l'autre.</h2>
+        <p class="prose">Tic, c'est un métronome qui sert de prof. Il part du morceau que tu veux jouer et remonte jusqu'à ce que tu sais déjà faire.</p>
+      </div>
+      <div class="vision">
+        <ol class="path">
+          <li class="step"><span class="n">1</span><div><h3>Tu choisis ton morceau</h3><p>Dans un catalogue de morceaux libres de droits. S'il n'y est pas, tu l'ajoutes à ta liste d'envies : c'est notre preuve de demande auprès des éditeurs.</p></div></li>
+          <li class="step"><span class="n">2</span><div><h3>Tic le découpe en parties</h3><p>Le refrain d'abord, le passage que tout le monde connaît. Chaque compétence arrive juste avant la partie qui en a besoin.</p></div></li>
+          <li class="step"><span class="n">3</span><div><h3>Tu choisis ton rythme</h3><p>De 5 à 20 minutes par séance, et les jours qui t'arrangent. Tic calcule ta date d'arrivée et la recalcule si tu changes d'avis.</p></div></li>
+          <li class="step"><span class="n">4</span><div><h3>Tu joues, Tic écoute</h3><p>Avec le micro du téléphone, ou un clavier MIDI si tu en as un. Une partie est validée après trois essais justes à 80 %.</p></div></li>
+          <li class="step"><span class="n">5</span><div><h3>Tu le joues en entier</h3><p>D'abord avec les notes guidées, puis avec la partition, puis sans l'app. Tu gardes l'enregistrement de ta version.</p></div></li>
+        </ol>
+        <aside class="promise" aria-label="Ce que Tic promet">
+          <h3>Un prof patient, pas une salle d'arcade.</h3>
+          <ul>
+            <li><span class="tick" aria-hidden="true">✓</span><span><b>Jamais de reproche.</b> Un jour manqué gèle ta série, il ne la perd pas.</span></li>
+            <li><span class="tick" aria-hidden="true">✓</span><span><b>Un seul rappel par jour,</b> à l'heure que tu choisis, sans fausse urgence.</span></li>
+            <li><span class="tick" aria-hidden="true">✓</span><span><b>Une écoute honnête.</b> Quand Tic t'entend mal, il le dit et te propose une solution.</span></li>
+            <li><span class="tick" aria-hidden="true">✓</span><span><b>Un essai sans piège.</b> Rappel avant la fin de l'essai, résiliation en un geste.</span></li>
+            <li><span class="tick" aria-hidden="true">✓</span><span><b>Ton son reste chez toi.</b> L'écoute est analysée sur le téléphone, et seulement pendant l'exercice.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTIE 4 · LES ÉCRANS -->
+  <section class="part" id="ecrans" aria-labelledby="t-ecrans">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="segs" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>Partie 4 sur 6 · Les écrans</p>
+        <h2 id="t-ecrans">À quoi Tic pourrait ressembler.</h2>
+        <p class="note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>Maquettes de conception, pas un prototype. Elles servent à tester l'idée en entretien.</p>
+      </div>
+      <div class="screens" tabindex="0" aria-label="Maquettes d'écrans, défilement horizontal">
+        <figure class="screen"><div class="phone"><img src="img/ecrans/accueil-parcours.png" alt="Écran « Ton chemin jusqu'à la Gymnopédie » : les parties du morceau et les compétences placées juste avant, jusqu'au morceau en entier vers le 11 novembre." width="260" height="563"></div><figcaption><b>Ton parcours</b>Le morceau en parties, avec ta date d'arrivée.</figcaption></figure>
+        <figure class="screen"><div class="phone"><img src="img/ecrans/seance-fin.png" alt="Écran « Séance du jour : faite » : 10 minutes jouées, une partie validée, 6 jours de suite, morceau à 48 %." width="260" height="563"></div><figcaption><b>Fin de séance</b>Ce que tu as gagné aujourd'hui, en un coup d'œil.</figcaption></figure>
+        <figure class="screen"><div class="phone"><img src="img/ecrans/seance-progres.png" alt="Écran « Mes progrès » : avancée du morceau, tempo qui monte de 60 % à 100 %, chemin vers l'autonomie." width="260" height="563"></div><figcaption><b>Mes progrès</b>Le tempo monte, la partition remplace les notes guidées.</figcaption></figure>
+        <figure class="screen"><div class="phone"><img src="img/ecrans/ecoute-probleme.png" alt="Écran « Je t'entends mal » : rapprocher le téléphone, refaire le réglage, passer en MIDI ou jouer sans écoute." width="260" height="563"></div><figcaption><b>Je t'entends mal</b>Quand le micro décroche, Tic propose une solution.</figcaption></figure>
+        <figure class="screen"><div class="phone"><img src="img/ecrans/seance-gelee.png" alt="Écran « Ta série est gelée, pas perdue » : une séance de 5 minutes pour dégeler." width="260" height="563"></div><figcaption><b>Série gelée</b>Un jour manqué, sans reproche.</figcaption></figure>
+        <figure class="screen"><div class="phone"><img src="img/ecrans/seance-termine.png" alt="Écran « Tu l'as joué en entier ! » : Tic en fête, ta version enregistrée, le morceau suivant." width="260" height="563"></div><figcaption><b>Morceau terminé</b>Ta version à garder, puis le suivant.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTIE 5 · LE TEASER -->
+  <section class="part" id="teaser" aria-labelledby="t-teaser">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="segs" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>Partie 5 sur 6 · Le teaser</p>
+        <h2 id="t-teaser">Deux minutes avec Tic.</h2>
+        <p class="prose">L'histoire d'une pianiste qui reprend pour un morceau précis, et d'un guitariste débutant. Tournage après le terrain, avec de vraies citations d'entretien.</p>
+      </div>
+      <!-- À REMPLACER quand le teaser est monté (2 min, 300 Mo max) :
+           <video controls preload="metadata" poster="img/banner.png"><source src="teaser.mp4" type="video/mp4"></video>
+           à la place du bloc <div class="over">…</div> et de l'image ci-dessous. -->
+      <div class="teaser">
+        <div class="over">
+          <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#1F4D3A"/></svg></span>
+          <strong>Le teaser arrive en décembre 2026.</strong>
+          <span>Deux minutes, en français, sous-titrées.</span>
+        </div>
+      </div>
+      <div class="acts" aria-label="Les quatre temps du teaser">
+        <div><b>La friction</b>0:00 – 0:24</div>
+        <div><b>Tic, le prof</b>0:24 – 1:24</div>
+        <div><b>La preuve</b>1:24 – 1:42</div>
+        <div><b>Rejoins-nous</b>1:42 – 1:59</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTIE 6 · L'ÉQUIPE -->
+  <section class="part" id="equipe" aria-labelledby="t-equipe">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="segs" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Partie 6 sur 6 · L'équipe</p>
+        <h2 id="t-equipe">On cherche cinq partenaires pour construire Tic.</h2>
+        <p class="prose">Si le projet passe en Phase 2, on recrute cinq étudiants des masters Epitech pour trois semestres. Les prérequis restent courts : on cherche des débutants motivés autant que des spécialistes. Pas besoin de jouer d'un instrument.</p>
+      </div>
+
+      <!-- À REMPLIR : prénoms des deux fondateurs, s'ils acceptent d'apparaître sur la page publique. -->
+      <div class="founders">
+        <div class="founder"><span class="avatar" aria-hidden="true">?</span><div><b>Fondateur ou fondatrice</b><span>Promoteur · terrain, cadrage et faisabilité</span></div></div>
+        <div class="founder"><span class="avatar" aria-hidden="true">?</span><div><b>Fondateur ou fondatrice</b><span>Promoteur · identité, promotion et recrutement</span></div></div>
+      </div>
+
+      <div class="roles">
+        <article class="role critical">
+          <span class="flag">Poste le plus critique</span>
+          <p class="lot">Lot « Écoute »</p>
+          <h3>Traitement audio et IA</h3>
+          <p>Tu apprends à Tic à écouter : reconnaître les notes jouées au piano ou à la guitare, au micro du téléphone, et dire à l'élève ce qui est juste.</p>
+          <p class="need"><b>Pour démarrer :</b> les bases de la programmation, du son (fréquence, échantillonnage) et de l'IA.</p>
+        </article>
+        <article class="role">
+          <p class="lot">Lot « App »</p>
+          <h3>Développement mobile</h3>
+          <p>Tu construis l'app sur iOS et Android : le parcours, les séances, la partition qui défile, et le micro, avec la personne chargée de l'écoute.</p>
+          <p class="need"><b>Pour démarrer :</b> les bases de la programmation et une première interface, même simple.</p>
+        </article>
+        <article class="role">
+          <p class="lot">Lot « Données »</p>
+          <h3>Back-end et données</h3>
+          <p>Tu gères les comptes, le catalogue des morceaux et de leurs parties, la progression et la liste d'envies, avec le moins de données personnelles possible.</p>
+          <p class="need"><b>Pour démarrer :</b> les bases de la programmation et d'une base de données.</p>
+        </article>
+        <article class="role">
+          <p class="lot">Lot « Expérience »</p>
+          <h3>UI / UX</h3>
+          <p>Tu dessines les écrans et les humeurs de Tic, et tu les testes avec de vrais débutants pour que personne ne se sente en examen.</p>
+          <p class="need"><b>Pour démarrer :</b> un premier outil de maquette et l'envie d'observer des utilisateurs.</p>
+        </article>
+        <article class="role">
+          <p class="lot">Lot « Mise en ligne »</p>
+          <h3>DevOps</h3>
+          <p>Tu automatises les builds et les tests, publies l'app sur les stores, et surveilles l'infrastructure et ses coûts.</p>
+          <p class="need"><b>Pour démarrer :</b> les bases de Linux, de Git et d'un premier déploiement.</p>
+        </article>
+        <article class="join">
+          <h3>Ça te parle ?</h3>
+          <p>Tu es en master Epitech, disponible de T8 à T10 ? Retrouve Tic sur la plateforme Innovation et parle-nous au Mercato.</p>
+          <!-- À REMPLACER : lien direct vers la fiche Tic sur innovation.epitech.eu une fois publiée. -->
+          <a class="btn" href="https://innovation.epitech.eu" target="_blank" rel="noopener">Voir Tic sur Innovation</a>
+        </article>
+      </div>
+
+      <div class="timeline" aria-label="Les trois semestres du projet">
+        <div><b>T8 · Cadrage</b>Conception, architecture, découpage en lots.</div>
+        <div><b>T9 · Construction</b>Premières versions, testées avec de vrais élèves.</div>
+        <div><b>T10 · Construction et exploitation</b>Publication, suivi et améliorations.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <p class="sig">Ton morceau, un jour après l'autre.</p>
+      <p style="margin-top:12px">Tic est un projet de fin d'études Epitech (MSc), en Phase 1 : idéation. Aucun code produit n'est écrit à ce stade ; les écrans sont des maquettes. Les personnes interrogées restent anonymes.</p>
+    </div>
+    <span class="wordmark" role="img" aria-label="tic">
+      <span aria-hidden="true">t</span><svg viewBox="0 0 54 150" aria-hidden="true"><line class="bar" x1="27" y1="128" x2="27" y2="63" stroke-width="18" stroke-linecap="round"/><circle class="dot" cx="27" cy="36" r="11"/></svg><span aria-hidden="true">c</span>
+    </span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ids=['probleme','terrain','vision','ecrans','teaser','equipe'];
+  var names=['Le problème','Le terrain','La vision','Les écrans','Le teaser',"L'équipe"];
+  var links=[].slice.call(document.querySelectorAll('#parts a'));
+  var label=document.getElementById('now-label');
+  var secs=ids.map(function(id){return document.getElementById(id)});
+  function update(){
+    var y=window.scrollY+window.innerHeight*0.35, cur=-1;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) cur=i; });
+    links.forEach(function(a,i){
+      a.classList.toggle('done',i<cur);
+      a.classList.toggle('now',i===cur);
+      if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
+    });
+    var k=Math.max(cur,0);
+    label.textContent='Partie '+(k+1)+' sur 6 · '+names[k];
+  }
+  var ticking=false;
+  window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ update(); ticking=false; }); } },{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+</script>
+<!-- ARTIFACT-END -->
+</body>
+</html>

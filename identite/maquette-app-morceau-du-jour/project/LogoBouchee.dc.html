@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Logo Bouchée</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 560px; height: 600px; display: flex; flex-direction: column; font-family: 'Fraunces', serif">
+  <div style="flex: 1; background: #D63A22; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px">
+    <svg width="210" height="210" viewBox="0 0 200 200" role="img" aria-label="Icône Bouchée : un vinyle dont une part est détachée">
+      <rect width="200" height="200" rx="46" fill="#F6EEDF"></rect>
+      <circle cx="96" cy="104" r="70" fill="#1E1A17"></circle>
+      <circle cx="96" cy="104" r="58" fill="none" stroke="#3B332D" stroke-width="1.6"></circle>
+      <circle cx="96" cy="104" r="46" fill="none" stroke="#3B332D" stroke-width="1.6"></circle>
+      <circle cx="96" cy="104" r="34" fill="none" stroke="#3B332D" stroke-width="1.6"></circle>
+      <circle cx="96" cy="104" r="22" fill="#D63A22"></circle>
+      <circle cx="96" cy="104" r="4" fill="#F6EEDF"></circle>
+      <path d="M96 104 L96 28 A76 76 0 0 1 161.8 66 Z" fill="#F6EEDF"></path>
+      <g transform="translate(14 -14)">
+        <path d="M96 104 L96 34 A70 70 0 0 1 156.6 69 Z" fill="#1E1A17"></path>
+        <path d="M96 46 A58 58 0 0 1 146.2 75" fill="none" stroke="#3B332D" stroke-width="1.6"></path>
+        <path d="M96 58 A46 46 0 0 1 135.8 81" fill="none" stroke="#3B332D" stroke-width="1.6"></path>
+        <path d="M96 104 L96 82 A22 22 0 0 1 115.1 93 Z" fill="#D63A22"></path>
+      </g>
+    </svg>
+    <div style="font-weight: 900; font-style: italic; font-size: 72px; color: #F6EEDF; line-height: 1; letter-spacing: -0.01em">bouchée</div>
+  </div>
+  <div style="height: 150px; background: #F6EEDF; display: flex; align-items: center; justify-content: center; gap: 18px">
+    <svg width="64" height="64" viewBox="0 0 200 200" aria-hidden="true">
+      <rect width="200" height="200" rx="46" fill="#D63A22"></rect>
+      <circle cx="96" cy="104" r="70" fill="#1E1A17"></circle>
+      <circle cx="96" cy="104" r="22" fill="#F6EEDF"></circle>
+      <path d="M96 104 L96 28 A76 76 0 0 1 161.8 66 Z" fill="#D63A22"></path>
+      <g transform="translate(14 -14)">
+        <path d="M96 104 L96 34 A70 70 0 0 1 156.6 69 Z" fill="#1E1A17"></path>
+        <path d="M96 104 L96 82 A22 22 0 0 1 115.1 93 Z" fill="#F6EEDF"></path>
+      </g>
+    </svg>
+    <div style="font-weight: 900; font-style: italic; font-size: 44px; color: #1E1A17">bouchée</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":560,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
